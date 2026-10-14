@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9af6803b665f76e8d935c0d477dcee15 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9af6803b665f76e8d935c0d477dcee15" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9af6803b665f76e8d935c0d477dcee15 = L.map(
+                "map_9af6803b665f76e8d935c0d477dcee15",
+                {
+                    center: [39.993418199999994, -75.15547980000001],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7897e37f286f852bc9506ced35bb63f8 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri \u0026mdash; Street Map",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7897e37f286f852bc9506ced35bb63f8.addTo(map_9af6803b665f76e8d935c0d477dcee15);
+        
+    
+            var tile_layer_4c714e52b017d3f909da6255f2068115 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Tiles \u0026copy; Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4c714e52b017d3f909da6255f2068115.addTo(map_9af6803b665f76e8d935c0d477dcee15);
+        
+    
+            var feature_group_01d8f91126a48fc7b63d97e3960897c2 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_4a3aa22eae5bd7045059b1aa5a3fc05d = L.circleMarker(
+                [39.9526, -75.1652],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.64, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_bc50d3c6823c00fc0dc66bf539cea97c = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_8373ad9742786dba410e90ace6461f15 = $(`<div id="html_8373ad9742786dba410e90ace6461f15" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Center City Commercial Core</h4>         <b>Zone Typology:</b> Commercial Core<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.8°C</span> (+15.3°C UHI)<br>         <b>Tree Canopy:</b> 6.2% | <b>NDVI:</b> 0.08<br>         <b>Impervious Surface:</b> 89.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $62,000<br>         <b>Poverty Rate:</b> 16.5%<br>         <b>Heat Hospitalizations:</b> 16.2 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">High Vulnerability</span>     </div>     </div>`)[0];
+                popup_bc50d3c6823c00fc0dc66bf539cea97c.setContent(html_8373ad9742786dba410e90ace6461f15);
+            
+        
+
+        circle_marker_4a3aa22eae5bd7045059b1aa5a3fc05d.bindPopup(popup_bc50d3c6823c00fc0dc66bf539cea97c)
+        ;
+
+        
+    
+    
+            var circle_marker_a5b5e40487f5178e48435bc65b501369 = L.circleMarker(
+                [39.954, -75.168],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.160000000000004, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_46ffd1bf3d43dbfbeb76feed4626b9ed = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_c3dc20077a6549bc32021e82513da1f0 = $(`<div id="html_c3dc20077a6549bc32021e82513da1f0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Financial & Tech District</h4>         <b>Zone Typology:</b> Commercial Core<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.2°C</span> (+14.7°C UHI)<br>         <b>Tree Canopy:</b> 7.8% | <b>NDVI:</b> 0.11<br>         <b>Impervious Surface:</b> 86.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $84,000<br>         <b>Poverty Rate:</b> 11.2%<br>         <b>Heat Hospitalizations:</b> 12.1 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_46ffd1bf3d43dbfbeb76feed4626b9ed.setContent(html_c3dc20077a6549bc32021e82513da1f0);
+            
+        
+
+        circle_marker_a5b5e40487f5178e48435bc65b501369.bindPopup(popup_46ffd1bf3d43dbfbeb76feed4626b9ed)
+        ;
+
+        
+    
+    
+            var circle_marker_1f7285fdc10bebf81ca46f888edfb11e = L.circleMarker(
+                [39.951, -75.193],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.52, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_5160ead188856b630cd1b38e5bcd1c86 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_9c3f4a8527d69443c8d9bd0bd807012b = $(`<div id="html_9c3f4a8527d69443c8d9bd0bd807012b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">University Medical Complex</h4>         <b>Zone Typology:</b> Institutional<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">38.4°C</span> (+13.9°C UHI)<br>         <b>Tree Canopy:</b> 12.5% | <b>NDVI:</b> 0.16<br>         <b>Impervious Surface:</b> 79.4%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $51,000<br>         <b>Poverty Rate:</b> 19.8%<br>         <b>Heat Hospitalizations:</b> 15.8 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">High Vulnerability</span>     </div>     </div>`)[0];
+                popup_5160ead188856b630cd1b38e5bcd1c86.setContent(html_9c3f4a8527d69443c8d9bd0bd807012b);
+            
+        
+
+        circle_marker_1f7285fdc10bebf81ca46f888edfb11e.bindPopup(popup_5160ead188856b630cd1b38e5bcd1c86)
+        ;
+
+        
+    
+    
+            var circle_marker_280fbb65a484e298c535ab6b25d68b25 = L.circleMarker(
+                [39.9555, -75.159],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.96, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_0c62603e1ee300afd9abccc42b600dec = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_af8b4f6a47d0708b34f507893e59d41b = $(`<div id="html_af8b4f6a47d0708b34f507893e59d41b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Convention & Transit Hub</h4>         <b>Zone Typology:</b> Commercial Core<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">40.2°C</span> (+15.7°C UHI)<br>         <b>Tree Canopy:</b> 4.5% | <b>NDVI:</b> 0.06<br>         <b>Impervious Surface:</b> 92.1%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $58,000<br>         <b>Poverty Rate:</b> 18.0%<br>         <b>Heat Hospitalizations:</b> 18.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">High Vulnerability</span>     </div>     </div>`)[0];
+                popup_0c62603e1ee300afd9abccc42b600dec.setContent(html_af8b4f6a47d0708b34f507893e59d41b);
+            
+        
+
+        circle_marker_280fbb65a484e298c535ab6b25d68b25.bindPopup(popup_0c62603e1ee300afd9abccc42b600dec)
+        ;
+
+        
+    
+    
+            var circle_marker_0d89edda4c024053f5f7b6a930f3ad50 = L.circleMarker(
+                [39.905, -75.148],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.080000000000002, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_5a2c6564a5a2f1fd216d217e948c3e8f = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_df0b00470d1586687e7bd195526880d9 = $(`<div id="html_df0b00470d1586687e7bd195526880d9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">South Port Logistics Terminal</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">41.6°C</span> (+17.1°C UHI)<br>         <b>Tree Canopy:</b> 3.1% | <b>NDVI:</b> 0.04<br>         <b>Impervious Surface:</b> 93.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $38,000<br>         <b>Poverty Rate:</b> 27.5%<br>         <b>Heat Hospitalizations:</b> 24.5 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">High Vulnerability</span>     </div>     </div>`)[0];
+                popup_5a2c6564a5a2f1fd216d217e948c3e8f.setContent(html_df0b00470d1586687e7bd195526880d9);
+            
+        
+
+        circle_marker_0d89edda4c024053f5f7b6a930f3ad50.bindPopup(popup_5a2c6564a5a2f1fd216d217e948c3e8f)
+        ;
+
+        
+    
+    
+            var circle_marker_8c01b00042defd203d9e1e66c7a9400e = L.circleMarker(
+                [39.982, -75.125],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.68, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_e29bcdaa224d2f4c20357fe453d9a817 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_eaff8a6e20032c82b86c32ba515452b9 = $(`<div id="html_eaff8a6e20032c82b86c32ba515452b9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Rail Freight & Manufacturing</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">41.1°C</span> (+16.6°C UHI)<br>         <b>Tree Canopy:</b> 4.2% | <b>NDVI:</b> 0.05<br>         <b>Impervious Surface:</b> 91.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $34,500<br>         <b>Poverty Rate:</b> 31.2%<br>         <b>Heat Hospitalizations:</b> 26.2 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_e29bcdaa224d2f4c20357fe453d9a817.setContent(html_eaff8a6e20032c82b86c32ba515452b9);
+            
+        
+
+        circle_marker_8c01b00042defd203d9e1e66c7a9400e.bindPopup(popup_e29bcdaa224d2f4c20357fe453d9a817)
+        ;
+
+        
+    
+    
+            var circle_marker_adc4763427a9f68e7b7234f50413283f = L.circleMarker(
+                [39.921, -75.205],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.24, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_cb729d516cd344752a0d1ce3ce1c2123 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_3a43f8f3b17cfe99cc26d9b8f0b2e5d6 = $(`<div id="html_3a43f8f3b17cfe99cc26d9b8f0b2e5d6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Chemical Refining Zone</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">41.8°C</span> (+17.3°C UHI)<br>         <b>Tree Canopy:</b> 2.8% | <b>NDVI:</b> 0.03<br>         <b>Impervious Surface:</b> 94.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $32,000<br>         <b>Poverty Rate:</b> 33.8%<br>         <b>Heat Hospitalizations:</b> 28.7 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_cb729d516cd344752a0d1ce3ce1c2123.setContent(html_3a43f8f3b17cfe99cc26d9b8f0b2e5d6);
+            
+        
+
+        circle_marker_adc4763427a9f68e7b7234f50413283f.bindPopup(popup_cb729d516cd344752a0d1ce3ce1c2123)
+        ;
+
+        
+    
+    
+            var circle_marker_1b851407a5c069e53d6b85e852d4955f = L.circleMarker(
+                [40.025, -75.045],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.200000000000003, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_608f8a23633014df55858c34790a731d = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_9b779914c2b8312c1a987ea7cb0e6c85 = $(`<div id="html_9b779914c2b8312c1a987ea7cb0e6c85" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Northeast Distribution Center</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">40.5°C</span> (+16.0°C UHI)<br>         <b>Tree Canopy:</b> 5.0% | <b>NDVI:</b> 0.07<br>         <b>Impervious Surface:</b> 88.0%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $44,000<br>         <b>Poverty Rate:</b> 22.0%<br>         <b>Heat Hospitalizations:</b> 20.1 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">High Vulnerability</span>     </div>     </div>`)[0];
+                popup_608f8a23633014df55858c34790a731d.setContent(html_9b779914c2b8312c1a987ea7cb0e6c85);
+            
+        
+
+        circle_marker_1b851407a5c069e53d6b85e852d4955f.bindPopup(popup_608f8a23633014df55858c34790a731d)
+        ;
+
+        
+    
+    
+            var circle_marker_4781749d388dd40061bb49a246474362 = L.circleMarker(
+                [39.975, -75.138],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.480000000000004, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_08c55c0198300aade39fba41a4b732a2 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_6e9055a8837980cd1af73a005b2dc5ec = $(`<div id="html_6e9055a8837980cd1af73a005b2dc5ec" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Eastside Dense Rowhouses</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.6°C</span> (+15.1°C UHI)<br>         <b>Tree Canopy:</b> 7.5% | <b>NDVI:</b> 0.12<br>         <b>Impervious Surface:</b> 84.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $31,200<br>         <b>Poverty Rate:</b> 38.4%<br>         <b>Heat Hospitalizations:</b> 27.8 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_08c55c0198300aade39fba41a4b732a2.setContent(html_6e9055a8837980cd1af73a005b2dc5ec);
+            
+        
+
+        circle_marker_4781749d388dd40061bb49a246474362.bindPopup(popup_08c55c0198300aade39fba41a4b732a2)
+        ;
+
+        
+    
+    
+            var circle_marker_339dd2a3e625d5712f3246bb1288806b = L.circleMarker(
+                [39.988, -75.152],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.72, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_0836cbd1c16080f791d23244dfde3a70 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_d5ae2376fe7f12b1b25a660004282810 = $(`<div id="html_d5ae2376fe7f12b1b25a660004282810" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">North Central Urban Block</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.9°C</span> (+15.4°C UHI)<br>         <b>Tree Canopy:</b> 6.8% | <b>NDVI:</b> 0.1<br>         <b>Impervious Surface:</b> 86.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $33,400<br>         <b>Poverty Rate:</b> 36.2%<br>         <b>Heat Hospitalizations:</b> 28.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_0836cbd1c16080f791d23244dfde3a70.setContent(html_d5ae2376fe7f12b1b25a660004282810);
+            
+        
+
+        circle_marker_339dd2a3e625d5712f3246bb1288806b.bindPopup(popup_0836cbd1c16080f791d23244dfde3a70)
+        ;
+
+        
+    
+    
+            var circle_marker_da37b06fa8c3d064ed81ed366454dbdd = L.circleMarker(
+                [39.932, -75.154],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.92, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_b2d89f78fe021cfedfd0372743d65473 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_6c5680b99a8dd8b017925c16b72b1862 = $(`<div id="html_6c5680b99a8dd8b017925c16b72b1862" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Southwark Working-Class Row</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">38.9°C</span> (+14.4°C UHI)<br>         <b>Tree Canopy:</b> 9.4% | <b>NDVI:</b> 0.14<br>         <b>Impervious Surface:</b> 82.0%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $42,000<br>         <b>Poverty Rate:</b> 24.8%<br>         <b>Heat Hospitalizations:</b> 21.5 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_b2d89f78fe021cfedfd0372743d65473.setContent(html_6c5680b99a8dd8b017925c16b72b1862);
+            
+        
+
+        circle_marker_da37b06fa8c3d064ed81ed366454dbdd.bindPopup(popup_b2d89f78fe021cfedfd0372743d65473)
+        ;
+
+        
+    
+    
+            var circle_marker_a633b2103556d89f0488acb6dc538e1d = L.circleMarker(
+                [39.965, -75.225],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.24, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_0502c59f60c4276123aa1e28979ea14d = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_c16c42d2968d6a1db89ade76c7d69309 = $(`<div id="html_c16c42d2968d6a1db89ade76c7d69309" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">West River Residential Dense</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.3°C</span> (+14.8°C UHI)<br>         <b>Tree Canopy:</b> 8.2% | <b>NDVI:</b> 0.13<br>         <b>Impervious Surface:</b> 83.4%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $35,800<br>         <b>Poverty Rate:</b> 32.5%<br>         <b>Heat Hospitalizations:</b> 25.1 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_0502c59f60c4276123aa1e28979ea14d.setContent(html_c16c42d2968d6a1db89ade76c7d69309);
+            
+        
+
+        circle_marker_a633b2103556d89f0488acb6dc538e1d.bindPopup(popup_0502c59f60c4276123aa1e28979ea14d)
+        ;
+
+        
+    
+    
+            var circle_marker_89dea339b866d3b187f7ae58d8109ca6 = L.circleMarker(
+                [39.992, -75.121],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.119999999999997, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_b8ecaad6dba26a2ea686e4b329ea6128 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_4dccfd6172ef29f3ebaf046339959d03 = $(`<div id="html_4dccfd6172ef29f3ebaf046339959d03" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Kensington Industrial Border</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">40.4°C</span> (+15.9°C UHI)<br>         <b>Tree Canopy:</b> 5.6% | <b>NDVI:</b> 0.09<br>         <b>Impervious Surface:</b> 88.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $29,800<br>         <b>Poverty Rate:</b> 41.0%<br>         <b>Heat Hospitalizations:</b> 29.2 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_b8ecaad6dba26a2ea686e4b329ea6128.setContent(html_4dccfd6172ef29f3ebaf046339959d03);
+            
+        
+
+        circle_marker_89dea339b866d3b187f7ae58d8109ca6.bindPopup(popup_b8ecaad6dba26a2ea686e4b329ea6128)
+        ;
+
+        
+    
+    
+            var circle_marker_23f5b7766c8ac5649c8365e35e3da297 = L.circleMarker(
+                [40.015, -75.142],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.4, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_a51c8530db5fc22d45cd2899ce9578b0 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_9b5bdf6b689be8785639c2ecbe04c7fe = $(`<div id="html_9b5bdf6b689be8785639c2ecbe04c7fe" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Hunting Park Flats</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.5°C</span> (+15.0°C UHI)<br>         <b>Tree Canopy:</b> 8.8% | <b>NDVI:</b> 0.13<br>         <b>Impervious Surface:</b> 81.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $36,500<br>         <b>Poverty Rate:</b> 30.5%<br>         <b>Heat Hospitalizations:</b> 23.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_a51c8530db5fc22d45cd2899ce9578b0.setContent(html_9b5bdf6b689be8785639c2ecbe04c7fe);
+            
+        
+
+        circle_marker_23f5b7766c8ac5649c8365e35e3da297.bindPopup(popup_a51c8530db5fc22d45cd2899ce9578b0)
+        ;
+
+        
+    
+    
+            var circle_marker_5da7f06a99c15986ed02423409d845d0 = L.circleMarker(
+                [39.952, -75.252],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.64, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_806c98dc12e554be12ce3da20dfde2ed = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_bb43d86739502e6130cfc2aa7bbf7666 = $(`<div id="html_bb43d86739502e6130cfc2aa7bbf7666" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Cobbs Creek Mixed Residential</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">34.8°C</span> (+10.3°C UHI)<br>         <b>Tree Canopy:</b> 24.5% | <b>NDVI:</b> 0.29<br>         <b>Impervious Surface:</b> 58.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $54,000<br>         <b>Poverty Rate:</b> 17.2%<br>         <b>Heat Hospitalizations:</b> 12.8 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_806c98dc12e554be12ce3da20dfde2ed.setContent(html_bb43d86739502e6130cfc2aa7bbf7666);
+            
+        
+
+        circle_marker_5da7f06a99c15986ed02423409d845d0.bindPopup(popup_806c98dc12e554be12ce3da20dfde2ed)
+        ;
+
+        
+    
+    
+            var circle_marker_f81406383b42c52e726c0003b6e6b8b4 = L.circleMarker(
+                [39.948, -75.221],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.68, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_173a471b58ad96541f7879f21e440561 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_ba7a538ba590b9cbe860301b7b586f93 = $(`<div id="html_ba7a538ba590b9cbe860301b7b586f93" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Cedar Park Tree-Lined Avenues</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">33.6°C</span> (+9.1°C UHI)<br>         <b>Tree Canopy:</b> 31.2% | <b>NDVI:</b> 0.35<br>         <b>Impervious Surface:</b> 51.4%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $68,000<br>         <b>Poverty Rate:</b> 12.8%<br>         <b>Heat Hospitalizations:</b> 9.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_173a471b58ad96541f7879f21e440561.setContent(html_ba7a538ba590b9cbe860301b7b586f93);
+            
+        
+
+        circle_marker_f81406383b42c52e726c0003b6e6b8b4.bindPopup(popup_173a471b58ad96541f7879f21e440561)
+        ;
+
+        
+    
+    
+            var circle_marker_4a3f4d40483d7780b5d40fec754256ec = L.circleMarker(
+                [40.038, -75.228],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.560000000000002, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_c327b48172b0b8a4f9fda521942f0531 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_b79ddcaee85745c167e1500cfa575f6e = $(`<div id="html_b79ddcaee85745c167e1500cfa575f6e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Roxborough Ridge</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">32.2°C</span> (+7.7°C UHI)<br>         <b>Tree Canopy:</b> 38.5% | <b>NDVI:</b> 0.42<br>         <b>Impervious Surface:</b> 44.0%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $79,000<br>         <b>Poverty Rate:</b> 9.5%<br>         <b>Heat Hospitalizations:</b> 7.8 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_c327b48172b0b8a4f9fda521942f0531.setContent(html_b79ddcaee85745c167e1500cfa575f6e);
+            
+        
+
+        circle_marker_4a3f4d40483d7780b5d40fec754256ec.bindPopup(popup_c327b48172b0b8a4f9fda521942f0531)
+        ;
+
+        
+    
+    
+            var circle_marker_f23982f8c01ad9505ed17948c7fa0bec = L.circleMarker(
+                [40.118, -75.012],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.240000000000002, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_885bdc9ca4c40e04811939a7dfbdd68d = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_077206ef099ec863d4f7b2455366568a = $(`<div id="html_077206ef099ec863d4f7b2455366568a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Somerton North Suburb</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">31.8°C</span> (+7.3°C UHI)<br>         <b>Tree Canopy:</b> 41.0% | <b>NDVI:</b> 0.45<br>         <b>Impervious Surface:</b> 41.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $86,000<br>         <b>Poverty Rate:</b> 7.8%<br>         <b>Heat Hospitalizations:</b> 6.2 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_885bdc9ca4c40e04811939a7dfbdd68d.setContent(html_077206ef099ec863d4f7b2455366568a);
+            
+        
+
+        circle_marker_f23982f8c01ad9505ed17948c7fa0bec.bindPopup(popup_885bdc9ca4c40e04811939a7dfbdd68d)
+        ;
+
+        
+    
+    
+            var circle_marker_6229e383cb6b6de294f3c90ebc8a16e0 = L.circleMarker(
+                [40.078, -75.082],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.8, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_2abf8f6acff9775615845618acdb7b78 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_1cd71c8e8008be07acafb23f97532751 = $(`<div id="html_1cd71c8e8008be07acafb23f97532751" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Fox Chase Garden Quarter</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">32.5°C</span> (+8.0°C UHI)<br>         <b>Tree Canopy:</b> 37.2% | <b>NDVI:</b> 0.41<br>         <b>Impervious Surface:</b> 45.6%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $81,000<br>         <b>Poverty Rate:</b> 8.4%<br>         <b>Heat Hospitalizations:</b> 7.1 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_2abf8f6acff9775615845618acdb7b78.setContent(html_1cd71c8e8008be07acafb23f97532751);
+            
+        
+
+        circle_marker_6229e383cb6b6de294f3c90ebc8a16e0.bindPopup(popup_2abf8f6acff9775615845618acdb7b78)
+        ;
+
+        
+    
+    
+            var circle_marker_4a02c02f6e3780e0fd3189274cd81dcc = L.circleMarker(
+                [40.052, -74.995],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.919999999999998, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_ecfe040fd1d807921d456ae982ab88f5 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_d5f18c0dbc3b1767ab0f388f082d5928 = $(`<div id="html_d5f18c0dbc3b1767ab0f388f082d5928" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Torresdale Delaware Overlook</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">31.4°C</span> (+6.9°C UHI)<br>         <b>Tree Canopy:</b> 42.8% | <b>NDVI:</b> 0.46<br>         <b>Impervious Surface:</b> 39.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $88,500<br>         <b>Poverty Rate:</b> 6.9%<br>         <b>Heat Hospitalizations:</b> 5.5 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_ecfe040fd1d807921d456ae982ab88f5.setContent(html_d5f18c0dbc3b1767ab0f388f082d5928);
+            
+        
+
+        circle_marker_4a02c02f6e3780e0fd3189274cd81dcc.bindPopup(popup_ecfe040fd1d807921d456ae982ab88f5)
+        ;
+
+        
+    
+    
+            var circle_marker_4ec98ebae2301944325b90b9b3c64b0c = L.circleMarker(
+                [40.078, -75.208],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.040000000000001, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_f84e1781f022e1213bb58e24903e3dd6 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_639421a9e258add3997b866f20a93ed7 = $(`<div id="html_639421a9e258add3997b866f20a93ed7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Chestnut Hill Historic Forest</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">27.8°C</span> (+3.3°C UHI)<br>         <b>Tree Canopy:</b> 58.4% | <b>NDVI:</b> 0.68<br>         <b>Impervious Surface:</b> 24.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $128,500<br>         <b>Poverty Rate:</b> 4.2%<br>         <b>Heat Hospitalizations:</b> 2.8 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Low Vulnerability</span>     </div>     </div>`)[0];
+                popup_f84e1781f022e1213bb58e24903e3dd6.setContent(html_639421a9e258add3997b866f20a93ed7);
+            
+        
+
+        circle_marker_4ec98ebae2301944325b90b9b3c64b0c.bindPopup(popup_f84e1781f022e1213bb58e24903e3dd6)
+        ;
+
+        
+    
+    
+            var circle_marker_acf30671bf7eca9362875ae8eee399dc = L.circleMarker(
+                [40.055, -75.188],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.080000000000002, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_8e260c9af29c2fbd74255cb7b3903af0 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_c9f924926a1525032dcfdb4a72b11186 = $(`<div id="html_c9f924926a1525032dcfdb4a72b11186" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Mount Airy Green Canopy Zone</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">29.1°C</span> (+4.6°C UHI)<br>         <b>Tree Canopy:</b> 52.0% | <b>NDVI:</b> 0.61<br>         <b>Impervious Surface:</b> 29.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $105,000<br>         <b>Poverty Rate:</b> 5.8%<br>         <b>Heat Hospitalizations:</b> 3.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_8e260c9af29c2fbd74255cb7b3903af0.setContent(html_c9f924926a1525032dcfdb4a72b11186);
+            
+        
+
+        circle_marker_acf30671bf7eca9362875ae8eee399dc.bindPopup(popup_8e260c9af29c2fbd74255cb7b3903af0)
+        ;
+
+        
+    
+    
+            var circle_marker_fcec92e4e153079bafae13d90a6592bc = L.circleMarker(
+                [39.988, -75.262],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.64, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_9b49daf7ef78aabb03be53095787b6ab = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_0c38a33d688049a5509286e21f3b3fa7 = $(`<div id="html_0c38a33d688049a5509286e21f3b3fa7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Overbrook Farms Arboretum</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">29.8°C</span> (+5.3°C UHI)<br>         <b>Tree Canopy:</b> 48.6% | <b>NDVI:</b> 0.58<br>         <b>Impervious Surface:</b> 33.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $112,000<br>         <b>Poverty Rate:</b> 5.1%<br>         <b>Heat Hospitalizations:</b> 3.1 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_9b49daf7ef78aabb03be53095787b6ab.setContent(html_0c38a33d688049a5509286e21f3b3fa7);
+            
+        
+
+        circle_marker_fcec92e4e153079bafae13d90a6592bc.bindPopup(popup_9b49daf7ef78aabb03be53095787b6ab)
+        ;
+
+        
+    
+    
+            var circle_marker_f516689a03e0410bdd444953d13243b1 = L.circleMarker(
+                [40.065, -75.045],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.6, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_d53b35409e9d8df5670dbe268f28e3f0 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_54987bd402fb2853f69a1762b901acfa = $(`<div id="html_54987bd402fb2853f69a1762b901acfa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Pennypack Green Buffer</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">28.5°C</span> (+4.0°C UHI)<br>         <b>Tree Canopy:</b> 55.2% | <b>NDVI:</b> 0.64<br>         <b>Impervious Surface:</b> 26.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $98,000<br>         <b>Poverty Rate:</b> 6.2%<br>         <b>Heat Hospitalizations:</b> 3.6 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Low Vulnerability</span>     </div>     </div>`)[0];
+                popup_d53b35409e9d8df5670dbe268f28e3f0.setContent(html_54987bd402fb2853f69a1762b901acfa);
+            
+        
+
+        circle_marker_f516689a03e0410bdd444953d13243b1.bindPopup(popup_d53b35409e9d8df5670dbe268f28e3f0)
+        ;
+
+        
+    
+    
+            var circle_marker_644ac23b9dfddce2d0f65036e1c4d145 = L.circleMarker(
+                [40.035, -75.205],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.959999999999999, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_03cd0de4a23c05ce26f902f57c1d7b78 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_80dfa8cb465f5acb42ff89aca57b62ab = $(`<div id="html_80dfa8cb465f5acb42ff89aca57b62ab" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Wissahickon Valley Park Core</h4>         <b>Zone Typology:</b> Park / Reserve<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">25.2°C</span> (+0.7°C UHI)<br>         <b>Tree Canopy:</b> 68.5% | <b>NDVI:</b> 0.76<br>         <b>Impervious Surface:</b> 12.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $95,000<br>         <b>Poverty Rate:</b> 6.0%<br>         <b>Heat Hospitalizations:</b> 2.1 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Low Vulnerability</span>     </div>     </div>`)[0];
+                popup_03cd0de4a23c05ce26f902f57c1d7b78.setContent(html_80dfa8cb465f5acb42ff89aca57b62ab);
+            
+        
+
+        circle_marker_644ac23b9dfddce2d0f65036e1c4d145.bindPopup(popup_03cd0de4a23c05ce26f902f57c1d7b78)
+        ;
+
+        
+    
+    
+            var circle_marker_bde0b487e43175a317e0cd549a0ea2ee = L.circleMarker(
+                [39.982, -75.195],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.680000000000001, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_4936a95d988468f3dd5b33736721f5dd = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_e519796cc884299bbbccfbca854b982e = $(`<div id="html_e519796cc884299bbbccfbca854b982e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Fairmount Central Park Oasis</h4>         <b>Zone Typology:</b> Park / Reserve<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">26.1°C</span> (+1.6°C UHI)<br>         <b>Tree Canopy:</b> 64.0% | <b>NDVI:</b> 0.72<br>         <b>Impervious Surface:</b> 16.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $82,000<br>         <b>Poverty Rate:</b> 8.5%<br>         <b>Heat Hospitalizations:</b> 2.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Low Vulnerability</span>     </div>     </div>`)[0];
+                popup_4936a95d988468f3dd5b33736721f5dd.setContent(html_e519796cc884299bbbccfbca854b982e);
+            
+        
+
+        circle_marker_bde0b487e43175a317e0cd549a0ea2ee.bindPopup(popup_4936a95d988468f3dd5b33736721f5dd)
+        ;
+
+        
+    
+    
+            var circle_marker_9cbab0c315cb5cf65e7db1bda5fc9fb6 = L.circleMarker(
+                [40.082, -75.035],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.64, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_f43b36cf47684e2edd7e7fae76c5d75e = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_aef1a13d5aa7ab81edcbf9db3ad19b8e = $(`<div id="html_aef1a13d5aa7ab81edcbf9db3ad19b8e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Pennypack Creek Protected Forest</h4>         <b>Zone Typology:</b> Park / Reserve<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">24.8°C</span> (+0.3°C UHI)<br>         <b>Tree Canopy:</b> 71.2% | <b>NDVI:</b> 0.78<br>         <b>Impervious Surface:</b> 10.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $91,000<br>         <b>Poverty Rate:</b> 6.5%<br>         <b>Heat Hospitalizations:</b> 1.8 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Low Vulnerability</span>     </div>     </div>`)[0];
+                popup_f43b36cf47684e2edd7e7fae76c5d75e.setContent(html_aef1a13d5aa7ab81edcbf9db3ad19b8e);
+            
+        
+
+        circle_marker_9cbab0c315cb5cf65e7db1bda5fc9fb6.bindPopup(popup_f43b36cf47684e2edd7e7fae76c5d75e)
+        ;
+
+        
+    
+    
+            var circle_marker_e6173965a34e28d3357e5a604f1cddd5 = L.circleMarker(
+                [39.888, -75.258],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.719999999999999, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_30920d4d962b332df0899d08df85642b = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_85d8a2db7af5827c2905f0c182714d15 = $(`<div id="html_85d8a2db7af5827c2905f0c182714d15" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">John Heinz National Wildlife Refuge</h4>         <b>Zone Typology:</b> Park / Reserve<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">24.9°C</span> (+0.4°C UHI)<br>         <b>Tree Canopy:</b> 66.8% | <b>NDVI:</b> 0.75<br>         <b>Impervious Surface:</b> 14.0%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $55,000<br>         <b>Poverty Rate:</b> 15.0%<br>         <b>Heat Hospitalizations:</b> 2.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Low Vulnerability</span>     </div>     </div>`)[0];
+                popup_30920d4d962b332df0899d08df85642b.setContent(html_85d8a2db7af5827c2905f0c182714d15);
+            
+        
+
+        circle_marker_e6173965a34e28d3357e5a604f1cddd5.bindPopup(popup_30920d4d962b332df0899d08df85642b)
+        ;
+
+        
+    
+    
+            var circle_marker_f069e702381d6d503de9e00d5bd3df79 = L.circleMarker(
+                [39.962, -75.182],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.2, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_1446758ac8270ced74ec7cda79d881b3 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_6795911c8807aa0ad2476eccd589503f = $(`<div id="html_6795911c8807aa0ad2476eccd589503f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Schuylkill River Riparian Edge</h4>         <b>Zone Typology:</b> Waterfront<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">30.5°C</span> (+6.0°C UHI)<br>         <b>Tree Canopy:</b> 42.0% | <b>NDVI:</b> 0.52<br>         <b>Impervious Surface:</b> 48.0%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $87,000<br>         <b>Poverty Rate:</b> 7.5%<br>         <b>Heat Hospitalizations:</b> 4.8 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Low Vulnerability</span>     </div>     </div>`)[0];
+                popup_1446758ac8270ced74ec7cda79d881b3.setContent(html_6795911c8807aa0ad2476eccd589503f);
+            
+        
+
+        circle_marker_f069e702381d6d503de9e00d5bd3df79.bindPopup(popup_1446758ac8270ced74ec7cda79d881b3)
+        ;
+
+        
+    
+    
+            var circle_marker_88c9a87751c9d712c13ca7539336b170 = L.circleMarker(
+                [39.941, -75.141],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.76, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_7a9a1a2e8f053870c722c2cf5c43227c = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_b2f9c1fa82460796c06e401ada26a7b7 = $(`<div id="html_b2f9c1fa82460796c06e401ada26a7b7" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Delaware Marina Waterfront Park</h4>         <b>Zone Typology:</b> Waterfront<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">31.2°C</span> (+6.7°C UHI)<br>         <b>Tree Canopy:</b> 38.5% | <b>NDVI:</b> 0.48<br>         <b>Impervious Surface:</b> 52.0%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $79,000<br>         <b>Poverty Rate:</b> 9.8%<br>         <b>Heat Hospitalizations:</b> 5.2 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_7a9a1a2e8f053870c722c2cf5c43227c.setContent(html_b2f9c1fa82460796c06e401ada26a7b7);
+            
+        
+
+        circle_marker_88c9a87751c9d712c13ca7539336b170.bindPopup(popup_7a9a1a2e8f053870c722c2cf5c43227c)
+        ;
+
+        
+    
+    
+            var circle_marker_9f575b019cf4c022e6af25e9dbde5ad8 = L.circleMarker(
+                [39.93996, -75.12394],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.695999999999998, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_c957cd15b7898119f4c154e113b469ad = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_c2e6acc0fa2198e1aa912ccddfb58284 = $(`<div id="html_c2e6acc0fa2198e1aa912ccddfb58284" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Dense Commercial Sector A</h4>         <b>Zone Typology:</b> Commercial Core<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.87°C</span> (+15.37°C UHI)<br>         <b>Tree Canopy:</b> 7.1% | <b>NDVI:</b> 0.095<br>         <b>Impervious Surface:</b> 85.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $62,248<br>         <b>Poverty Rate:</b> 15.6%<br>         <b>Heat Hospitalizations:</b> 30.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_c957cd15b7898119f4c154e113b469ad.setContent(html_c2e6acc0fa2198e1aa912ccddfb58284);
+            
+        
+
+        circle_marker_9f575b019cf4c022e6af25e9dbde5ad8.bindPopup(popup_c957cd15b7898119f4c154e113b469ad)
+        ;
+
+        
+    
+    
+            var circle_marker_001d6ada5de05c79d2c2bcc588ef0058 = L.circleMarker(
+                [39.96759, -75.1034],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.456000000000003, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_8eb98ffe7733f710e870bbcbd66f8922 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_8aed0767c627ee0caa07e52dc9dc5a29 = $(`<div id="html_8aed0767c627ee0caa07e52dc9dc5a29" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Industrial Terminal Sector B</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">40.82°C</span> (+16.32°C UHI)<br>         <b>Tree Canopy:</b> 2.5% | <b>NDVI:</b> 0.04<br>         <b>Impervious Surface:</b> 91.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $32,467<br>         <b>Poverty Rate:</b> 27.7%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_8eb98ffe7733f710e870bbcbd66f8922.setContent(html_8aed0767c627ee0caa07e52dc9dc5a29);
+            
+        
+
+        circle_marker_001d6ada5de05c79d2c2bcc588ef0058.bindPopup(popup_8eb98ffe7733f710e870bbcbd66f8922)
+        ;
+
+        
+    
+    
+            var circle_marker_3625de9fa45964d5d82427125b7fe5ef = L.circleMarker(
+                [39.96337, -75.15069],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.368000000000002, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_af9d43e478287ccf1b3a0b610b7b85ac = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_01358583f4c181da3bf072e937857cfc = $(`<div id="html_01358583f4c181da3bf072e937857cfc" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Urban Rowhouse East Sector C</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.46°C</span> (+14.96°C UHI)<br>         <b>Tree Canopy:</b> 8.9% | <b>NDVI:</b> 0.124<br>         <b>Impervious Surface:</b> 85.3%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $30,097<br>         <b>Poverty Rate:</b> 37.6%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_af9d43e478287ccf1b3a0b610b7b85ac.setContent(html_01358583f4c181da3bf072e937857cfc);
+            
+        
+
+        circle_marker_3625de9fa45964d5d82427125b7fe5ef.bindPopup(popup_af9d43e478287ccf1b3a0b610b7b85ac)
+        ;
+
+        
+    
+    
+            var circle_marker_82b47f37dff2c008915e8fd267a633ca = L.circleMarker(
+                [40.07591, -75.11275],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.839999999999996, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_c77d59baef0a87911f92aac7782dfda6 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_7c0d103391eb5c15c42e496970f314af = $(`<div id="html_7c0d103391eb5c15c42e496970f314af" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Suburban Parkside Sector D</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">33.8°C</span> (+9.3°C UHI)<br>         <b>Tree Canopy:</b> 33.8% | <b>NDVI:</b> 0.37<br>         <b>Impervious Surface:</b> 58.6%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $71,781<br>         <b>Poverty Rate:</b> 10.0%<br>         <b>Heat Hospitalizations:</b> 18.6 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_c77d59baef0a87911f92aac7782dfda6.setContent(html_7c0d103391eb5c15c42e496970f314af);
+            
+        
+
+        circle_marker_82b47f37dff2c008915e8fd267a633ca.bindPopup(popup_c77d59baef0a87911f92aac7782dfda6)
+        ;
+
+        
+    
+    
+            var circle_marker_9e38124ae7d5c4a124c1ea7a32ec58b7 = L.circleMarker(
+                [40.0407, -75.177],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.288, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_351bbfbe9fc341e03aab390acdebf148 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_fbe861c8df6695487348cff35b6f5a75 = $(`<div id="html_fbe861c8df6695487348cff35b6f5a75" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Green Enclave Sector E</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">28.11°C</span> (+3.61°C UHI)<br>         <b>Tree Canopy:</b> 54.1% | <b>NDVI:</b> 0.631<br>         <b>Impervious Surface:</b> 34.2%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $115,373<br>         <b>Poverty Rate:</b> 7.6%<br>         <b>Heat Hospitalizations:</b> 7.6 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_351bbfbe9fc341e03aab390acdebf148.setContent(html_fbe861c8df6695487348cff35b6f5a75);
+            
+        
+
+        circle_marker_9e38124ae7d5c4a124c1ea7a32ec58b7.bindPopup(popup_351bbfbe9fc341e03aab390acdebf148)
+        ;
+
+        
+    
+    
+            var circle_marker_bf16b17995bb882dd3678d63eaf5ed82 = L.circleMarker(
+                [39.98375, -75.19292],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.24, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_4fe53147e78bc60fd564e048e3734590 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_1bdebf4fc53b025dbfb4b48843f58bba = $(`<div id="html_1bdebf4fc53b025dbfb4b48843f58bba" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Dense Commercial Sector F</h4>         <b>Zone Typology:</b> Commercial Core<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.3°C</span> (+14.8°C UHI)<br>         <b>Tree Canopy:</b> 3.8% | <b>NDVI:</b> 0.068<br>         <b>Impervious Surface:</b> 90.4%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $63,602<br>         <b>Poverty Rate:</b> 14.1%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_4fe53147e78bc60fd564e048e3734590.setContent(html_1bdebf4fc53b025dbfb4b48843f58bba);
+            
+        
+
+        circle_marker_bf16b17995bb882dd3678d63eaf5ed82.bindPopup(popup_4fe53147e78bc60fd564e048e3734590)
+        ;
+
+        
+    
+    
+            var circle_marker_732d482f25cb2aba42f1427ce8fcd551 = L.circleMarker(
+                [39.90127, -75.10582],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.727999999999998, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_e17c9150ee73e6e4491d9cbea45e6bf4 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_3f65e28ddb49d659547b9667548c16df = $(`<div id="html_3f65e28ddb49d659547b9667548c16df" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Industrial Terminal Sector A</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.91°C</span> (+15.41°C UHI)<br>         <b>Tree Canopy:</b> 6.7% | <b>NDVI:</b> 0.073<br>         <b>Impervious Surface:</b> 86.4%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $37,177<br>         <b>Poverty Rate:</b> 30.2%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_e17c9150ee73e6e4491d9cbea45e6bf4.setContent(html_3f65e28ddb49d659547b9667548c16df);
+            
+        
+
+        circle_marker_732d482f25cb2aba42f1427ce8fcd551.bindPopup(popup_e17c9150ee73e6e4491d9cbea45e6bf4)
+        ;
+
+        
+    
+    
+            var circle_marker_2f45bdc1a9c56038b3796b17e97f2427 = L.circleMarker(
+                [39.94592, -75.15132],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.760000000000005, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_c059cf975d43f7b60bf6a7c8eaecfbbf = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_3b60737bd940744f6294736ca84a44e2 = $(`<div id="html_3b60737bd940744f6294736ca84a44e2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Urban Rowhouse East Sector B</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">38.7°C</span> (+14.2°C UHI)<br>         <b>Tree Canopy:</b> 9.4% | <b>NDVI:</b> 0.128<br>         <b>Impervious Surface:</b> 84.0%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $33,486<br>         <b>Poverty Rate:</b> 36.0%<br>         <b>Heat Hospitalizations:</b> 31.3 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_c059cf975d43f7b60bf6a7c8eaecfbbf.setContent(html_3b60737bd940744f6294736ca84a44e2);
+            
+        
+
+        circle_marker_2f45bdc1a9c56038b3796b17e97f2427.bindPopup(popup_c059cf975d43f7b60bf6a7c8eaecfbbf)
+        ;
+
+        
+    
+    
+            var circle_marker_be7712986261ef9b10bbccf8fab1cbe9 = L.circleMarker(
+                [40.07098, -75.15222],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.431999999999999, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_21db3f96c848a953c446fbf65be94aa8 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_ed73a4050296e615c400244ec49fbfe2 = $(`<div id="html_ed73a4050296e615c400244ec49fbfe2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Suburban Parkside Sector C</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">32.04°C</span> (+7.54°C UHI)<br>         <b>Tree Canopy:</b> 36.3% | <b>NDVI:</b> 0.39<br>         <b>Impervious Surface:</b> 55.3%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $77,086<br>         <b>Poverty Rate:</b> 10.1%<br>         <b>Heat Hospitalizations:</b> 17.7 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_21db3f96c848a953c446fbf65be94aa8.setContent(html_ed73a4050296e615c400244ec49fbfe2);
+            
+        
+
+        circle_marker_be7712986261ef9b10bbccf8fab1cbe9.bindPopup(popup_21db3f96c848a953c446fbf65be94aa8)
+        ;
+
+        
+    
+    
+            var circle_marker_7b5ed5432840a02e3107ac5288877e83 = L.circleMarker(
+                [40.02863, -75.22749],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.952000000000002, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_23845d4007b3aba82b6b07c0b5f286eb = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_dce3c4780104b4e8d9f4911ab003e595 = $(`<div id="html_dce3c4780104b4e8d9f4911ab003e595" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Green Enclave Sector D</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">28.94°C</span> (+4.44°C UHI)<br>         <b>Tree Canopy:</b> 52.9% | <b>NDVI:</b> 0.621<br>         <b>Impervious Surface:</b> 38.4%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $115,068<br>         <b>Poverty Rate:</b> 6.5%<br>         <b>Heat Hospitalizations:</b> 6.7 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_23845d4007b3aba82b6b07c0b5f286eb.setContent(html_dce3c4780104b4e8d9f4911ab003e595);
+            
+        
+
+        circle_marker_7b5ed5432840a02e3107ac5288877e83.bindPopup(popup_23845d4007b3aba82b6b07c0b5f286eb)
+        ;
+
+        
+    
+    
+            var circle_marker_537cc5a90b966a0e7c89ed0633daf306 = L.circleMarker(
+                [39.93318, -75.1871],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.872000000000003, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_067ef28552d1141e9d86ae92561da09d = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_8ddadb9bc7aa9d491f34eb771b7aed5e = $(`<div id="html_8ddadb9bc7aa9d491f34eb771b7aed5e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Dense Commercial Sector E</h4>         <b>Zone Typology:</b> Commercial Core<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">40.09°C</span> (+15.59°C UHI)<br>         <b>Tree Canopy:</b> 8.3% | <b>NDVI:</b> 0.104<br>         <b>Impervious Surface:</b> 87.4%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $66,067<br>         <b>Poverty Rate:</b> 17.4%<br>         <b>Heat Hospitalizations:</b> 31.1 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_067ef28552d1141e9d86ae92561da09d.setContent(html_8ddadb9bc7aa9d491f34eb771b7aed5e);
+            
+        
+
+        circle_marker_537cc5a90b966a0e7c89ed0633daf306.bindPopup(popup_067ef28552d1141e9d86ae92561da09d)
+        ;
+
+        
+    
+    
+            var circle_marker_376a8818f47da41d46d594bf79a7e092 = L.circleMarker(
+                [39.96169, -75.14456],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.296, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_506287dfe78a47e39026dbda6e3ec51e = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_60ae204e39476601a604ea7d6e57fb67 = $(`<div id="html_60ae204e39476601a604ea7d6e57fb67" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Industrial Terminal Sector F</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">40.62°C</span> (+16.12°C UHI)<br>         <b>Tree Canopy:</b> 2.5% | <b>NDVI:</b> 0.04<br>         <b>Impervious Surface:</b> 93.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $34,416<br>         <b>Poverty Rate:</b> 29.1%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_506287dfe78a47e39026dbda6e3ec51e.setContent(html_60ae204e39476601a604ea7d6e57fb67);
+            
+        
+
+        circle_marker_376a8818f47da41d46d594bf79a7e092.bindPopup(popup_506287dfe78a47e39026dbda6e3ec51e)
+        ;
+
+        
+    
+    
+            var circle_marker_15a6906c622434f97a2a32960330b827 = L.circleMarker(
+                [39.94959, -75.15299],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.480000000000004, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_be0f559db9770b8ad9363d26c50548e1 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_957ae92672b7845047158c3ed7565168 = $(`<div id="html_957ae92672b7845047158c3ed7565168" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Urban Rowhouse East Sector A</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">40.85°C</span> (+16.35°C UHI)<br>         <b>Tree Canopy:</b> 6.1% | <b>NDVI:</b> 0.101<br>         <b>Impervious Surface:</b> 89.1%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $32,650<br>         <b>Poverty Rate:</b> 39.8%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_be0f559db9770b8ad9363d26c50548e1.setContent(html_957ae92672b7845047158c3ed7565168);
+            
+        
+
+        circle_marker_15a6906c622434f97a2a32960330b827.bindPopup(popup_be0f559db9770b8ad9363d26c50548e1)
+        ;
+
+        
+    
+    
+            var circle_marker_cce5a6631cf89d531dea7418b7a88af2 = L.circleMarker(
+                [40.02407, -75.16721],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.376, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_c09a5cd23bca0444c6cf5d6310ca487f = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_863f2d980827ae69848cfd57634c0f39 = $(`<div id="html_863f2d980827ae69848cfd57634c0f39" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Suburban Parkside Sector B</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">31.97°C</span> (+7.47°C UHI)<br>         <b>Tree Canopy:</b> 35.7% | <b>NDVI:</b> 0.386<br>         <b>Impervious Surface:</b> 53.9%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $75,021<br>         <b>Poverty Rate:</b> 8.4%<br>         <b>Heat Hospitalizations:</b> 17.2 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_c09a5cd23bca0444c6cf5d6310ca487f.setContent(html_863f2d980827ae69848cfd57634c0f39);
+            
+        
+
+        circle_marker_cce5a6631cf89d531dea7418b7a88af2.bindPopup(popup_c09a5cd23bca0444c6cf5d6310ca487f)
+        ;
+
+        
+    
+    
+            var circle_marker_56ddea80ecfa13c2d04108ba9f2f084b = L.circleMarker(
+                [40.09885, -75.21064],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.680000000000001, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_ef73b8209cc773123fd5c05c40d294ff = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_c3b81254ebcf19f405d9b4d481137f10 = $(`<div id="html_c3b81254ebcf19f405d9b4d481137f10" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Green Enclave Sector C</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">28.6°C</span> (+4.1°C UHI)<br>         <b>Tree Canopy:</b> 55.6% | <b>NDVI:</b> 0.643<br>         <b>Impervious Surface:</b> 34.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $112,901<br>         <b>Poverty Rate:</b> 5.8%<br>         <b>Heat Hospitalizations:</b> 5.9 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_ef73b8209cc773123fd5c05c40d294ff.setContent(html_c3b81254ebcf19f405d9b4d481137f10);
+            
+        
+
+        circle_marker_56ddea80ecfa13c2d04108ba9f2f084b.bindPopup(popup_ef73b8209cc773123fd5c05c40d294ff)
+        ;
+
+        
+    
+    
+            var circle_marker_379d3daf76d8ecb993f4dec04c8f6092 = L.circleMarker(
+                [39.97682, -75.17434],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.232, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_263cbe848d1a1216f2653154eb207105 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_7d0522519abda86223816f29d99e305f = $(`<div id="html_7d0522519abda86223816f29d99e305f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Dense Commercial Sector D</h4>         <b>Zone Typology:</b> Commercial Core<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.29°C</span> (+14.79°C UHI)<br>         <b>Tree Canopy:</b> 3.7% | <b>NDVI:</b> 0.068<br>         <b>Impervious Surface:</b> 91.6%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $65,727<br>         <b>Poverty Rate:</b> 13.4%<br>         <b>Heat Hospitalizations:</b> 31.7 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_263cbe848d1a1216f2653154eb207105.setContent(html_7d0522519abda86223816f29d99e305f);
+            
+        
+
+        circle_marker_379d3daf76d8ecb993f4dec04c8f6092.bindPopup(popup_263cbe848d1a1216f2653154eb207105)
+        ;
+
+        
+    
+    
+            var circle_marker_bd164606983ce98031db6a536f5c2738 = L.circleMarker(
+                [39.94528, -75.13906],
+                {"bubblingMouseEvents": true, "color": "#7f0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7f0000", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23.616000000000003, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_b70048aa057643938fbf80502e6271ce = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_ddc3d6fe5603fc382ba3caa4712efc42 = $(`<div id="html_ddc3d6fe5603fc382ba3caa4712efc42" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #7f0000; padding-bottom: 4px;">Industrial Terminal Sector E</h4>         <b>Zone Typology:</b> Industrial<br>         <b>Surface Temp (LST):</b> <span style="color: #7f0000; font-weight: bold; font-size: 14px;">42.27°C</span> (+17.77°C UHI)<br>         <b>Tree Canopy:</b> 2.5% | <b>NDVI:</b> 0.04<br>         <b>Impervious Surface:</b> 90.7%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $33,728<br>         <b>Poverty Rate:</b> 27.5%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #7f0000; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_b70048aa057643938fbf80502e6271ce.setContent(html_ddc3d6fe5603fc382ba3caa4712efc42);
+            
+        
+
+        circle_marker_bd164606983ce98031db6a536f5c2738.bindPopup(popup_b70048aa057643938fbf80502e6271ce)
+        ;
+
+        
+    
+    
+            var circle_marker_2363bb6ffbfbac3b49aae1a3e5b42547 = L.circleMarker(
+                [39.98442, -75.13763],
+                {"bubblingMouseEvents": true, "color": "#d62728", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d62728", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.512, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_890e9545090b6df83de787d671863691 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_aa7a71c71583780c8ac63b5854a50d88 = $(`<div id="html_aa7a71c71583780c8ac63b5854a50d88" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #d62728; padding-bottom: 4px;">Urban Rowhouse East Sector F</h4>         <b>Zone Typology:</b> High-Density Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #d62728; font-weight: bold; font-size: 14px;">39.64°C</span> (+15.14°C UHI)<br>         <b>Tree Canopy:</b> 4.8% | <b>NDVI:</b> 0.091<br>         <b>Impervious Surface:</b> 91.3%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $35,677<br>         <b>Poverty Rate:</b> 36.1%<br>         <b>Heat Hospitalizations:</b> 32.0 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #d62728; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Severe / Critical</span>     </div>     </div>`)[0];
+                popup_890e9545090b6df83de787d671863691.setContent(html_aa7a71c71583780c8ac63b5854a50d88);
+            
+        
+
+        circle_marker_2363bb6ffbfbac3b49aae1a3e5b42547.bindPopup(popup_890e9545090b6df83de787d671863691)
+        ;
+
+        
+    
+    
+            var circle_marker_322075fee562e45cb51fb3a1dd42b740 = L.circleMarker(
+                [40.07097, -75.12761],
+                {"bubblingMouseEvents": true, "color": "#ff7f0e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff7f0e", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.727999999999998, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_16da36bba26ba9501577368d5baaa4c9 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_5800205d974e7f777980ae6fbdc10313 = $(`<div id="html_5800205d974e7f777980ae6fbdc10313" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #ff7f0e; padding-bottom: 4px;">Suburban Parkside Sector A</h4>         <b>Zone Typology:</b> Suburban Residential<br>         <b>Surface Temp (LST):</b> <span style="color: #ff7f0e; font-weight: bold; font-size: 14px;">33.66°C</span> (+9.16°C UHI)<br>         <b>Tree Canopy:</b> 32.5% | <b>NDVI:</b> 0.36<br>         <b>Impervious Surface:</b> 60.8%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $72,293<br>         <b>Poverty Rate:</b> 7.6%<br>         <b>Heat Hospitalizations:</b> 19.4 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #ff7f0e; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_16da36bba26ba9501577368d5baaa4c9.setContent(html_5800205d974e7f777980ae6fbdc10313);
+            
+        
+
+        circle_marker_322075fee562e45cb51fb3a1dd42b740.bindPopup(popup_16da36bba26ba9501577368d5baaa4c9)
+        ;
+
+        
+    
+    
+            var circle_marker_5568ad4120e255fff06f108952e80db6 = L.circleMarker(
+                [40.03286, -75.1861],
+                {"bubblingMouseEvents": true, "color": "#2ca02c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ca02c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.8, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_01d8f91126a48fc7b63d97e3960897c2);
+        
+    
+        var popup_046bdeef89464b82123f35e9e591fbc4 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_b442875da9239bb37ac9d8fc1e6c0cbf = $(`<div id="html_b442875da9239bb37ac9d8fc1e6c0cbf" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; font-size: 13px; width: 230px; line-height: 1.5;">         <h4 style="margin: 0 0 6px 0; color: #222; border-bottom: 2px solid #2ca02c; padding-bottom: 4px;">Green Enclave Sector B</h4>         <b>Zone Typology:</b> Affluent Greenbelt<br>         <b>Surface Temp (LST):</b> <span style="color: #2ca02c; font-weight: bold; font-size: 14px;">28.75°C</span> (+4.25°C UHI)<br>         <b>Tree Canopy:</b> 54.9% | <b>NDVI:</b> 0.637<br>         <b>Impervious Surface:</b> 35.5%<br>         <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ddd;">         <b>Median Income:</b> $112,794<br>         <b>Poverty Rate:</b> 6.5%<br>         <b>Heat Hospitalizations:</b> 5.9 / 10k<br>         <b>Vulnerability Status:</b> <span style="background: #2ca02c; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Moderate Vulnerability</span>     </div>     </div>`)[0];
+                popup_046bdeef89464b82123f35e9e591fbc4.setContent(html_b442875da9239bb37ac9d8fc1e6c0cbf);
+            
+        
+
+        circle_marker_5568ad4120e255fff06f108952e80db6.bindPopup(popup_046bdeef89464b82123f35e9e591fbc4)
+        ;
+
+        
+    
+    
+            feature_group_01d8f91126a48fc7b63d97e3960897c2.addTo(map_9af6803b665f76e8d935c0d477dcee15);
+        
+    
+            var feature_group_c8a10b65b85b0c6b445001c74d2452fc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_08f9cc58e6d25dee42a07885bfe8c7bd = L.circleMarker(
+                [39.9526, -75.1652],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.96, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_08f9cc58e6d25dee42a07885bfe8c7bd.bindTooltip(
+                `<div>
+                     Center City Commercial Core - NDVI: 0.08 (Canopy: 6.2%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c45e805955ff4737ee3830b26618db9e = L.circleMarker(
+                [39.954, -75.168],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.32, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_c45e805955ff4737ee3830b26618db9e.bindTooltip(
+                `<div>
+                     Financial & Tech District - NDVI: 0.11 (Canopy: 7.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_57fde00f7f5a260ead5d963162bd56dd = L.circleMarker(
+                [39.951, -75.193],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.92, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_57fde00f7f5a260ead5d963162bd56dd.bindTooltip(
+                `<div>
+                     University Medical Complex - NDVI: 0.16 (Canopy: 12.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d93a5a3eb01ac88c4177ca7c0b7ba06f = L.circleMarker(
+                [39.9555, -75.159],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.72, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_d93a5a3eb01ac88c4177ca7c0b7ba06f.bindTooltip(
+                `<div>
+                     Convention & Transit Hub - NDVI: 0.06 (Canopy: 4.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a41d098ba60e2e465ba22d252cfca581 = L.circleMarker(
+                [39.905, -75.148],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.48, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_a41d098ba60e2e465ba22d252cfca581.bindTooltip(
+                `<div>
+                     South Port Logistics Terminal - NDVI: 0.04 (Canopy: 3.1%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_26e1c0c019d274855bae2a41ff8a19d5 = L.circleMarker(
+                [39.982, -75.125],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.6, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_26e1c0c019d274855bae2a41ff8a19d5.bindTooltip(
+                `<div>
+                     Rail Freight & Manufacturing - NDVI: 0.05 (Canopy: 4.2%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_52747d22203990bcca93c011aaacf1e4 = L.circleMarker(
+                [39.921, -75.205],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.36, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_52747d22203990bcca93c011aaacf1e4.bindTooltip(
+                `<div>
+                     Chemical Refining Zone - NDVI: 0.03 (Canopy: 2.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d1425396ec852a5b874e291efa5b9142 = L.circleMarker(
+                [40.025, -75.045],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.84, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_d1425396ec852a5b874e291efa5b9142.bindTooltip(
+                `<div>
+                     Northeast Distribution Center - NDVI: 0.07 (Canopy: 5.0%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8964384730e6652fc55ca9373ae74e63 = L.circleMarker(
+                [39.975, -75.138],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.44, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_8964384730e6652fc55ca9373ae74e63.bindTooltip(
+                `<div>
+                     Eastside Dense Rowhouses - NDVI: 0.12 (Canopy: 7.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61fe86f94ed4d5fd230c2e2bfb717925 = L.circleMarker(
+                [39.988, -75.152],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.2, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_61fe86f94ed4d5fd230c2e2bfb717925.bindTooltip(
+                `<div>
+                     North Central Urban Block - NDVI: 0.1 (Canopy: 6.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9753269b223fc38bc36e0ef0eddec872 = L.circleMarker(
+                [39.932, -75.154],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.68, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_9753269b223fc38bc36e0ef0eddec872.bindTooltip(
+                `<div>
+                     Southwark Working-Class Row - NDVI: 0.14 (Canopy: 9.4%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b523e02a12b88c9540d77a28269b2662 = L.circleMarker(
+                [39.965, -75.225],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.56, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_b523e02a12b88c9540d77a28269b2662.bindTooltip(
+                `<div>
+                     West River Residential Dense - NDVI: 0.13 (Canopy: 8.2%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_93d48c5606e72bcc1c20f5447bb59340 = L.circleMarker(
+                [39.992, -75.121],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.08, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_93d48c5606e72bcc1c20f5447bb59340.bindTooltip(
+                `<div>
+                     Kensington Industrial Border - NDVI: 0.09 (Canopy: 5.6%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9660ffcb40f1db9884aa68f90724a0b8 = L.circleMarker(
+                [40.015, -75.142],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.56, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_9660ffcb40f1db9884aa68f90724a0b8.bindTooltip(
+                `<div>
+                     Hunting Park Flats - NDVI: 0.13 (Canopy: 8.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ccfa590dcdb46de8d45d12351db0132 = L.circleMarker(
+                [39.952, -75.252],
+                {"bubblingMouseEvents": true, "color": "#addd8e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#addd8e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.48, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_8ccfa590dcdb46de8d45d12351db0132.bindTooltip(
+                `<div>
+                     Cobbs Creek Mixed Residential - NDVI: 0.29 (Canopy: 24.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1d403de7c1e0fe29c549cc531a5fac3f = L.circleMarker(
+                [39.948, -75.221],
+                {"bubblingMouseEvents": true, "color": "#addd8e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#addd8e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.2, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_1d403de7c1e0fe29c549cc531a5fac3f.bindTooltip(
+                `<div>
+                     Cedar Park Tree-Lined Avenues - NDVI: 0.35 (Canopy: 31.2%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7f344f123a84c9b1a96b80c253c4f80 = L.circleMarker(
+                [40.038, -75.228],
+                {"bubblingMouseEvents": true, "color": "#41ab5d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41ab5d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.04, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_e7f344f123a84c9b1a96b80c253c4f80.bindTooltip(
+                `<div>
+                     Roxborough Ridge - NDVI: 0.42 (Canopy: 38.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_05b17afc9a309af0394f7143eec5c8bb = L.circleMarker(
+                [40.118, -75.012],
+                {"bubblingMouseEvents": true, "color": "#41ab5d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41ab5d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.4, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_05b17afc9a309af0394f7143eec5c8bb.bindTooltip(
+                `<div>
+                     Somerton North Suburb - NDVI: 0.45 (Canopy: 41.0%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4653352314dfab8b2fe67b8fa6ecacb2 = L.circleMarker(
+                [40.078, -75.082],
+                {"bubblingMouseEvents": true, "color": "#41ab5d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41ab5d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.92, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_4653352314dfab8b2fe67b8fa6ecacb2.bindTooltip(
+                `<div>
+                     Fox Chase Garden Quarter - NDVI: 0.41 (Canopy: 37.2%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c79d7c566dbd9215bf12958f8440ea00 = L.circleMarker(
+                [40.052, -74.995],
+                {"bubblingMouseEvents": true, "color": "#41ab5d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41ab5d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.52, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_c79d7c566dbd9215bf12958f8440ea00.bindTooltip(
+                `<div>
+                     Torresdale Delaware Overlook - NDVI: 0.46 (Canopy: 42.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac459878dcc1e9eb764468ce611ddb57 = L.circleMarker(
+                [40.078, -75.208],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.16, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_ac459878dcc1e9eb764468ce611ddb57.bindTooltip(
+                `<div>
+                     Chestnut Hill Historic Forest - NDVI: 0.68 (Canopy: 58.4%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c95dbc31d92b6167a6d632e7bd095fa3 = L.circleMarker(
+                [40.055, -75.188],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.32, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_c95dbc31d92b6167a6d632e7bd095fa3.bindTooltip(
+                `<div>
+                     Mount Airy Green Canopy Zone - NDVI: 0.61 (Canopy: 52.0%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0ecd236d6c4b7750ffc82281a6e04c5 = L.circleMarker(
+                [39.988, -75.262],
+                {"bubblingMouseEvents": true, "color": "#41ab5d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41ab5d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.959999999999999, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_c0ecd236d6c4b7750ffc82281a6e04c5.bindTooltip(
+                `<div>
+                     Overbrook Farms Arboretum - NDVI: 0.58 (Canopy: 48.6%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_69a973b02e6217d54a9a6351d943f140 = L.circleMarker(
+                [40.065, -75.045],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.68, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_69a973b02e6217d54a9a6351d943f140.bindTooltip(
+                `<div>
+                     Pennypack Green Buffer - NDVI: 0.64 (Canopy: 55.2%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6caf09f1b23e00438f5dfd90641696e6 = L.circleMarker(
+                [40.035, -75.205],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.12, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_6caf09f1b23e00438f5dfd90641696e6.bindTooltip(
+                `<div>
+                     Wissahickon Valley Park Core - NDVI: 0.76 (Canopy: 68.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_803a44c5c8976d3722aad7a1443c0d6d = L.circleMarker(
+                [39.982, -75.195],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.64, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_803a44c5c8976d3722aad7a1443c0d6d.bindTooltip(
+                `<div>
+                     Fairmount Central Park Oasis - NDVI: 0.72 (Canopy: 64.0%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ff5ba6e3afd937b37b1e8066b37efdc = L.circleMarker(
+                [40.082, -75.035],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.36, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_1ff5ba6e3afd937b37b1e8066b37efdc.bindTooltip(
+                `<div>
+                     Pennypack Creek Protected Forest - NDVI: 0.78 (Canopy: 71.2%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5bdea6c0b98db58589ddb49ff693c676 = L.circleMarker(
+                [39.888, -75.258],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.0, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_5bdea6c0b98db58589ddb49ff693c676.bindTooltip(
+                `<div>
+                     John Heinz National Wildlife Refuge - NDVI: 0.75 (Canopy: 66.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4e962a84afc81f15d5c79fde85fb265d = L.circleMarker(
+                [39.962, -75.182],
+                {"bubblingMouseEvents": true, "color": "#41ab5d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41ab5d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.24, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_4e962a84afc81f15d5c79fde85fb265d.bindTooltip(
+                `<div>
+                     Schuylkill River Riparian Edge - NDVI: 0.52 (Canopy: 42.0%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e36f5a9d5950d55107ae2656f04b0f8 = L.circleMarker(
+                [39.941, -75.141],
+                {"bubblingMouseEvents": true, "color": "#41ab5d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#41ab5d", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.76, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_0e36f5a9d5950d55107ae2656f04b0f8.bindTooltip(
+                `<div>
+                     Delaware Marina Waterfront Park - NDVI: 0.48 (Canopy: 38.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c66c106bebcecda6c441affa5b8b3329 = L.circleMarker(
+                [39.93996, -75.12394],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.14, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_c66c106bebcecda6c441affa5b8b3329.bindTooltip(
+                `<div>
+                     Dense Commercial Sector A - NDVI: 0.095 (Canopy: 7.1%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4c4e8ea8fb5e4ccca15ac6a00a89c5fe = L.circleMarker(
+                [39.96759, -75.1034],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.48, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_4c4e8ea8fb5e4ccca15ac6a00a89c5fe.bindTooltip(
+                `<div>
+                     Industrial Terminal Sector B - NDVI: 0.04 (Canopy: 2.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d609c89d159c1a8066007ced0d7c8dd1 = L.circleMarker(
+                [39.96337, -75.15069],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.488, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_d609c89d159c1a8066007ced0d7c8dd1.bindTooltip(
+                `<div>
+                     Urban Rowhouse East Sector C - NDVI: 0.124 (Canopy: 8.9%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6fde056d52842f2b6133cfb136ce8e49 = L.circleMarker(
+                [40.07591, -75.11275],
+                {"bubblingMouseEvents": true, "color": "#addd8e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#addd8e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.44, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_6fde056d52842f2b6133cfb136ce8e49.bindTooltip(
+                `<div>
+                     Suburban Parkside Sector D - NDVI: 0.37 (Canopy: 33.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5174dcc533aaca88ade8df0c110aa8b = L.circleMarker(
+                [40.0407, -75.177],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.572, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_f5174dcc533aaca88ade8df0c110aa8b.bindTooltip(
+                `<div>
+                     Green Enclave Sector E - NDVI: 0.631 (Canopy: 54.1%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_322f25ffcf7cad055d808f014dbb56a2 = L.circleMarker(
+                [39.98375, -75.19292],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.816, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_322f25ffcf7cad055d808f014dbb56a2.bindTooltip(
+                `<div>
+                     Dense Commercial Sector F - NDVI: 0.068 (Canopy: 3.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e3b1da6807b1e9b61ef016717019ee6 = L.circleMarker(
+                [39.90127, -75.10582],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.876, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_5e3b1da6807b1e9b61ef016717019ee6.bindTooltip(
+                `<div>
+                     Industrial Terminal Sector A - NDVI: 0.073 (Canopy: 6.7%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_95aeca321184b2271711f0b09b4deb24 = L.circleMarker(
+                [39.94592, -75.15132],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.536, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_95aeca321184b2271711f0b09b4deb24.bindTooltip(
+                `<div>
+                     Urban Rowhouse East Sector B - NDVI: 0.128 (Canopy: 9.4%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_863cc0f38da88a89996e521a8ec46c81 = L.circleMarker(
+                [40.07098, -75.15222],
+                {"bubblingMouseEvents": true, "color": "#addd8e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#addd8e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.68, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_863cc0f38da88a89996e521a8ec46c81.bindTooltip(
+                `<div>
+                     Suburban Parkside Sector C - NDVI: 0.39 (Canopy: 36.3%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be4e181d3706d601cdfb6cd21eb2ef5d = L.circleMarker(
+                [40.02863, -75.22749],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.452, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_be4e181d3706d601cdfb6cd21eb2ef5d.bindTooltip(
+                `<div>
+                     Green Enclave Sector D - NDVI: 0.621 (Canopy: 52.9%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c944a86241f53f0efe7b64d330fc3de3 = L.circleMarker(
+                [39.93318, -75.1871],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.248, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_c944a86241f53f0efe7b64d330fc3de3.bindTooltip(
+                `<div>
+                     Dense Commercial Sector E - NDVI: 0.104 (Canopy: 8.3%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_29d0b6c0b46c3b38f2509c4edf81b8fa = L.circleMarker(
+                [39.96169, -75.14456],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.48, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_29d0b6c0b46c3b38f2509c4edf81b8fa.bindTooltip(
+                `<div>
+                     Industrial Terminal Sector F - NDVI: 0.04 (Canopy: 2.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_77e54677d64555600077ace5b4f1ed25 = L.circleMarker(
+                [39.94959, -75.15299],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.212, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_77e54677d64555600077ace5b4f1ed25.bindTooltip(
+                `<div>
+                     Urban Rowhouse East Sector A - NDVI: 0.101 (Canopy: 6.1%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c08e78814827340fbe0dd9159383890f = L.circleMarker(
+                [40.02407, -75.16721],
+                {"bubblingMouseEvents": true, "color": "#addd8e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#addd8e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.632, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_c08e78814827340fbe0dd9159383890f.bindTooltip(
+                `<div>
+                     Suburban Parkside Sector B - NDVI: 0.386 (Canopy: 35.7%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9754c8f68cd0b39626e587d521a9f2e7 = L.circleMarker(
+                [40.09885, -75.21064],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.716000000000001, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_9754c8f68cd0b39626e587d521a9f2e7.bindTooltip(
+                `<div>
+                     Green Enclave Sector C - NDVI: 0.643 (Canopy: 55.6%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_99bae0556574eda40bfd79c536defc83 = L.circleMarker(
+                [39.97682, -75.17434],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.816, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_99bae0556574eda40bfd79c536defc83.bindTooltip(
+                `<div>
+                     Dense Commercial Sector D - NDVI: 0.068 (Canopy: 3.7%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a16caa3675cbab2c75f8689b05542c3d = L.circleMarker(
+                [39.94528, -75.13906],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.48, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_a16caa3675cbab2c75f8689b05542c3d.bindTooltip(
+                `<div>
+                     Industrial Terminal Sector E - NDVI: 0.04 (Canopy: 2.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b083572c49b1fbbe70ad59fcbf07a1ba = L.circleMarker(
+                [39.98442, -75.13763],
+                {"bubblingMouseEvents": true, "color": "#d9f0a3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d9f0a3", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.092, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_b083572c49b1fbbe70ad59fcbf07a1ba.bindTooltip(
+                `<div>
+                     Urban Rowhouse East Sector F - NDVI: 0.091 (Canopy: 4.8%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3449ce08e98d30e01ff9320dfaefb597 = L.circleMarker(
+                [40.07097, -75.12761],
+                {"bubblingMouseEvents": true, "color": "#addd8e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#addd8e", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.32, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_3449ce08e98d30e01ff9320dfaefb597.bindTooltip(
+                `<div>
+                     Suburban Parkside Sector A - NDVI: 0.36 (Canopy: 32.5%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4c968723f7fe5265a8f97174bc12a910 = L.circleMarker(
+                [40.03286, -75.1861],
+                {"bubblingMouseEvents": true, "color": "#005a32", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#005a32", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.644, "stroke": true, "weight": 1.2}
+            ).addTo(feature_group_c8a10b65b85b0c6b445001c74d2452fc);
+        
+    
+            circle_marker_4c968723f7fe5265a8f97174bc12a910.bindTooltip(
+                `<div>
+                     Green Enclave Sector B - NDVI: 0.637 (Canopy: 54.9%)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var feature_group_cd57af7088aa20081e49712b0df1fea9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var heat_map_e0bd18dd9924f33e0bfeae6a13e3d83a = L.heatLayer(
+                [[39.9526, -75.1652, 0.8777777777777777], [39.954, -75.168, 0.8444444444444446], [39.951, -75.193, 0.7999999999999999], [39.9555, -75.159, 0.9000000000000001], [39.905, -75.148, 0.9777777777777779], [39.982, -75.125, 0.9500000000000001], [39.921, -75.205, 0.9888888888888887], [40.025, -75.045, 0.9166666666666666], [39.975, -75.138, 0.8666666666666667], [39.988, -75.152, 0.8833333333333333], [39.932, -75.154, 0.8277777777777777], [39.965, -75.225, 0.8499999999999999], [39.992, -75.121, 0.911111111111111], [40.015, -75.142, 0.8611111111111112], [39.952, -75.252, 0.5999999999999999], [39.948, -75.221, 0.5333333333333334], [40.038, -75.228, 0.4555555555555557], [40.118, -75.012, 0.43333333333333335], [40.078, -75.082, 0.4722222222222222], [40.052, -74.995, 0.41111111111111104], [40.078, -75.208, 0.21111111111111114], [40.055, -75.188, 0.28333333333333344], [39.988, -75.262, 0.32222222222222224], [40.065, -75.045, 0.25], [40.035, -75.205, 0.06666666666666662], [39.982, -75.195, 0.11666666666666675], [40.082, -75.035, 0.04444444444444448], [39.888, -75.258, 0.04999999999999992], [39.962, -75.182, 0.3611111111111111], [39.941, -75.141, 0.39999999999999997], [39.93996, -75.12394, 0.8816666666666665], [39.96759, -75.1034, 0.9344444444444444], [39.96337, -75.15069, 0.8588888888888889], [40.07591, -75.11275, 0.5444444444444443], [40.0407, -75.177, 0.2283333333333333], [39.98375, -75.19292, 0.8499999999999999], [39.90127, -75.10582, 0.8838888888888887], [39.94592, -75.15132, 0.8166666666666669], [40.07098, -75.15222, 0.4466666666666666], [40.02863, -75.22749, 0.2744444444444445], [39.93318, -75.1871, 0.8938888888888891], [39.96169, -75.14456, 0.9233333333333332], [39.94959, -75.15299, 0.9361111111111112], [40.02407, -75.16721, 0.4427777777777777], [40.09885, -75.21064, 0.25555555555555565], [39.97682, -75.17434, 0.8494444444444444], [39.94528, -75.13906, 1.0150000000000001], [39.98442, -75.13763, 0.8688888888888889], [40.07097, -75.12761, 0.5366666666666665], [40.03286, -75.1861, 0.2638888888888889]],
+                {
+  "minOpacity": 0.35,
+  "maxZoom": 18,
+  "radius": 24,
+  "blur": 18,
+}
+            );
+        
+    
+            heat_map_e0bd18dd9924f33e0bfeae6a13e3d83a.addTo(feature_group_cd57af7088aa20081e49712b0df1fea9);
+        
+    
+            var layer_control_1da298aa1d063854d80255d8ebd8b667_layers = {
+                base_layers : {
+                    "\ud83c\udfd9\ufe0f Clean Street Map" : tile_layer_7897e37f286f852bc9506ced35bb63f8,
+                    "\ud83d\udef0\ufe0f Satellite Imagery" : tile_layer_4c714e52b017d3f909da6255f2068115,
+                },
+                overlays :  {
+                    "\ud83d\udd25 Land Surface Temperature (\u00b0C)" : feature_group_01d8f91126a48fc7b63d97e3960897c2,
+                    "\ud83c\udf3f Satellite Vegetation Index (NDVI)" : feature_group_c8a10b65b85b0c6b445001c74d2452fc,
+                    "\ud83c\udf21\ufe0f Thermal Density Kernel (Heatmap)" : feature_group_cd57af7088aa20081e49712b0df1fea9,
+                },
+            };
+            let layer_control_1da298aa1d063854d80255d8ebd8b667 = L.control.layers(
+                layer_control_1da298aa1d063854d80255d8ebd8b667_layers.base_layers,
+                layer_control_1da298aa1d063854d80255d8ebd8b667_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_9af6803b665f76e8d935c0d477dcee15);
+
+        
+</script>
+</html>

@@ -1,0 +1,51 @@
+zone_id,zone_name,zone_type,latitude,longitude,surface_temp_c,ndvi_index,tree_canopy_pct,impervious_surface_pct,albedo_coefficient,median_income_usd,poverty_rate_pct,elderly_pop_pct,ac_penetration_pct,heat_hospitalizations_per_10k,uhi_intensity_c,heat_vulnerability_score,vulnerability_tier
+Z01,Center City Commercial Core,Commercial Core,39.9526,-75.1652,39.8,0.08,6.2,89.5,0.13,62000,16.5,12.4,91.0,16.2,15.3,3.0,High Vulnerability
+Z02,Financial & Tech District,Commercial Core,39.954,-75.168,39.2,0.11,7.8,86.2,0.15,84000,11.2,9.8,96.0,12.1,14.7,2.47,Moderate Vulnerability
+Z03,University Medical Complex,Institutional,39.951,-75.193,38.4,0.16,12.5,79.4,0.18,51000,19.8,14.2,94.0,15.8,13.9,3.05,High Vulnerability
+Z04,Convention & Transit Hub,Commercial Core,39.9555,-75.159,40.2,0.06,4.5,92.1,0.12,58000,18.0,11.5,89.0,18.4,15.7,3.04,High Vulnerability
+Z05,South Port Logistics Terminal,Industrial,39.905,-75.148,41.6,0.04,3.1,93.8,0.11,38000,27.5,13.8,72.0,24.5,17.1,3.91,High Vulnerability
+Z06,Rail Freight & Manufacturing,Industrial,39.982,-75.125,41.1,0.05,4.2,91.5,0.12,34500,31.2,16.4,68.0,26.2,16.6,4.26,Severe / Critical
+Z07,Chemical Refining Zone,Industrial,39.921,-75.205,41.8,0.03,2.8,94.2,0.1,32000,33.8,15.2,65.0,28.7,17.3,4.34,Severe / Critical
+Z08,Northeast Distribution Center,Industrial,40.025,-75.045,40.5,0.07,5.0,88.0,0.13,44000,22.0,12.0,78.0,20.1,16.0,3.38,High Vulnerability
+Z09,Eastside Dense Rowhouses,High-Density Residential,39.975,-75.138,39.6,0.12,7.5,84.5,0.14,31200,38.4,21.2,61.0,27.8,15.1,4.86,Severe / Critical
+Z10,North Central Urban Block,High-Density Residential,39.988,-75.152,39.9,0.1,6.8,86.8,0.13,33400,36.2,22.8,59.0,28.4,15.4,5.0,Severe / Critical
+Z11,Southwark Working-Class Row,High-Density Residential,39.932,-75.154,38.9,0.14,9.4,82.0,0.14,42000,24.8,19.5,74.0,21.5,14.4,4.04,Severe / Critical
+Z12,West River Residential Dense,High-Density Residential,39.965,-75.225,39.3,0.13,8.2,83.4,0.14,35800,32.5,20.4,67.0,25.1,14.8,4.49,Severe / Critical
+Z13,Kensington Industrial Border,High-Density Residential,39.992,-75.121,40.4,0.09,5.6,88.2,0.12,29800,41.0,18.9,58.0,29.2,15.9,4.85,Severe / Critical
+Z14,Hunting Park Flats,High-Density Residential,40.015,-75.142,39.5,0.13,8.8,81.5,0.15,36500,30.5,17.6,71.0,23.4,15.0,4.13,Severe / Critical
+Z15,Cobbs Creek Mixed Residential,Suburban Residential,39.952,-75.252,34.8,0.29,24.5,58.2,0.18,54000,17.2,16.5,88.0,12.8,10.3,2.87,Moderate Vulnerability
+Z16,Cedar Park Tree-Lined Avenues,Suburban Residential,39.948,-75.221,33.6,0.35,31.2,51.4,0.2,68000,12.8,14.8,92.0,9.4,9.1,2.36,Moderate Vulnerability
+Z17,Roxborough Ridge,Suburban Residential,40.038,-75.228,32.2,0.42,38.5,44.0,0.21,79000,9.5,18.2,95.0,7.8,7.7,2.35,Moderate Vulnerability
+Z18,Somerton North Suburb,Suburban Residential,40.118,-75.012,31.8,0.45,41.0,41.2,0.22,86000,7.8,21.5,96.0,6.2,7.3,2.53,Moderate Vulnerability
+Z19,Fox Chase Garden Quarter,Suburban Residential,40.078,-75.082,32.5,0.41,37.2,45.6,0.2,81000,8.4,19.8,94.0,7.1,8.0,2.52,Moderate Vulnerability
+Z20,Torresdale Delaware Overlook,Suburban Residential,40.052,-74.995,31.4,0.46,42.8,39.8,0.23,88500,6.9,20.4,96.0,5.5,6.9,2.36,Moderate Vulnerability
+Z21,Chestnut Hill Historic Forest,Affluent Greenbelt,40.078,-75.208,27.8,0.68,58.4,24.2,0.26,128500,4.2,22.0,99.0,2.8,3.3,1.95,Low Vulnerability
+Z22,Mount Airy Green Canopy Zone,Affluent Greenbelt,40.055,-75.188,29.1,0.61,52.0,29.8,0.24,105000,5.8,20.8,98.0,3.4,4.6,2.06,Moderate Vulnerability
+Z23,Overbrook Farms Arboretum,Affluent Greenbelt,39.988,-75.262,29.8,0.58,48.6,33.5,0.24,112000,5.1,23.5,98.0,3.1,5.3,2.37,Moderate Vulnerability
+Z24,Pennypack Green Buffer,Affluent Greenbelt,40.065,-75.045,28.5,0.64,55.2,26.5,0.25,98000,6.2,19.2,97.0,3.6,4.0,1.86,Low Vulnerability
+Z25,Wissahickon Valley Park Core,Park / Reserve,40.035,-75.205,25.2,0.76,68.5,12.5,0.28,95000,6.0,16.0,96.0,2.1,0.7,1.19,Low Vulnerability
+Z26,Fairmount Central Park Oasis,Park / Reserve,39.982,-75.195,26.1,0.72,64.0,16.8,0.27,82000,8.5,15.0,95.0,2.4,1.6,1.3,Low Vulnerability
+Z27,Pennypack Creek Protected Forest,Park / Reserve,40.082,-75.035,24.8,0.78,71.2,10.2,0.29,91000,6.5,14.5,97.0,1.8,0.3,1.0,Low Vulnerability
+Z28,John Heinz National Wildlife Refuge,Park / Reserve,39.888,-75.258,24.9,0.75,66.8,14.0,0.28,55000,15.0,13.0,88.0,2.0,0.4,1.29,Low Vulnerability
+Z29,Schuylkill River Riparian Edge,Waterfront,39.962,-75.182,30.5,0.52,42.0,48.0,0.22,87000,7.5,14.0,96.0,4.8,6.0,1.72,Low Vulnerability
+Z30,Delaware Marina Waterfront Park,Waterfront,39.941,-75.141,31.2,0.48,38.5,52.0,0.21,79000,9.8,15.2,94.0,5.2,6.7,2.02,Moderate Vulnerability
+Z31,Dense Commercial Sector A,Commercial Core,39.93996,-75.12394,39.87,0.095,7.1,85.8,0.14,62248,15.6,11.8,89.1,30.4,15.37,2.94,Moderate Vulnerability
+Z32,Industrial Terminal Sector B,Industrial,39.96759,-75.1034,40.82,0.04,2.5,91.5,0.11,32467,27.7,15.4,67.8,32.0,16.32,4.06,Severe / Critical
+Z33,Urban Rowhouse East Sector C,High-Density Residential,39.96337,-75.15069,39.46,0.124,8.9,85.3,0.11,30097,37.6,19.7,59.4,32.0,14.96,4.7,Severe / Critical
+Z34,Suburban Parkside Sector D,Suburban Residential,40.07591,-75.11275,33.8,0.37,33.8,58.6,0.18,71781,10.0,16.1,95.5,18.6,9.3,2.34,Moderate Vulnerability
+Z35,Green Enclave Sector E,Affluent Greenbelt,40.0407,-75.177,28.11,0.631,54.1,34.2,0.26,115373,7.6,23.6,98.6,7.6,3.61,2.26,Moderate Vulnerability
+Z36,Dense Commercial Sector F,Commercial Core,39.98375,-75.19292,39.3,0.068,3.8,90.4,0.14,63602,14.1,10.1,92.3,32.0,14.8,2.68,Moderate Vulnerability
+Z37,Industrial Terminal Sector A,Industrial,39.90127,-75.10582,39.91,0.073,6.7,86.4,0.12,37177,30.2,15.9,71.6,32.0,15.41,4.01,Severe / Critical
+Z38,Urban Rowhouse East Sector B,High-Density Residential,39.94592,-75.15132,38.7,0.128,9.4,84.0,0.12,33486,36.0,21.9,62.8,31.3,14.2,4.74,Severe / Critical
+Z39,Suburban Parkside Sector C,Suburban Residential,40.07098,-75.15222,32.04,0.39,36.3,55.3,0.2,77086,10.1,17.7,90.2,17.7,7.54,2.4,Moderate Vulnerability
+Z40,Green Enclave Sector D,Affluent Greenbelt,40.02863,-75.22749,28.94,0.621,52.9,38.4,0.25,115068,6.5,20.9,95.5,6.7,4.44,2.11,Moderate Vulnerability
+Z41,Dense Commercial Sector E,Commercial Core,39.93318,-75.1871,40.09,0.104,8.3,87.4,0.12,66067,17.4,11.2,93.8,31.1,15.59,2.88,Moderate Vulnerability
+Z42,Industrial Terminal Sector F,Industrial,39.96169,-75.14456,40.62,0.04,2.5,93.5,0.09,34416,29.1,14.7,68.3,32.0,16.12,4.01,Severe / Critical
+Z43,Urban Rowhouse East Sector A,High-Density Residential,39.94959,-75.15299,40.85,0.101,6.1,89.1,0.15,32650,39.8,20.0,62.0,32.0,16.35,4.89,Severe / Critical
+Z44,Suburban Parkside Sector B,Suburban Residential,40.02407,-75.16721,31.97,0.386,35.7,53.9,0.22,75021,8.4,16.6,92.9,17.2,7.47,2.21,Moderate Vulnerability
+Z45,Green Enclave Sector C,Affluent Greenbelt,40.09885,-75.21064,28.6,0.643,55.6,34.8,0.26,112901,5.8,22.1,95.5,5.9,4.1,2.14,Moderate Vulnerability
+Z46,Dense Commercial Sector D,Commercial Core,39.97682,-75.17434,39.29,0.068,3.7,91.6,0.13,65727,13.4,11.6,90.0,31.7,14.79,2.83,Moderate Vulnerability
+Z47,Industrial Terminal Sector E,Industrial,39.94528,-75.13906,42.27,0.04,2.5,90.7,0.13,33728,27.5,15.6,71.9,32.0,17.77,4.13,Severe / Critical
+Z48,Urban Rowhouse East Sector F,High-Density Residential,39.98442,-75.13763,39.64,0.091,4.8,91.3,0.12,35677,36.1,21.9,64.4,32.0,15.14,4.83,Severe / Critical
+Z49,Suburban Parkside Sector A,Suburban Residential,40.07097,-75.12761,33.66,0.36,32.5,60.8,0.18,72293,7.6,18.7,90.0,19.4,9.16,2.59,Moderate Vulnerability
+Z50,Green Enclave Sector B,Affluent Greenbelt,40.03286,-75.1861,28.75,0.637,54.9,35.5,0.24,112794,6.5,22.6,99.0,5.9,4.25,2.18,Moderate Vulnerability
