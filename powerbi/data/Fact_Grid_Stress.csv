@@ -1,0 +1,11 @@
+year,extreme_heat_days_count,summer_peak_grid_load_mw,cooling_degree_days_cdd,heatwave_events_count,grid_stress_alert_events,total_heat_emergency_admissions
+2015,14,6850,1120,2,1,380
+2016,18,7120,1210,3,2,440
+2017,16,7040,1180,2,1,410
+2018,22,7480,1340,4,3,560
+2019,25,7750,1420,4,4,620
+2020,29,8140,1560,6,6,790
+2021,27,8020,1510,5,5,730
+2022,34,8620,1690,7,8,940
+2023,38,8950,1780,8,11,1080
+2024,42,9380,1910,9,14,1240

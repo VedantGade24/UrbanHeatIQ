@@ -1,0 +1,164 @@
+{
+  "config": "{\"version\": \"5.52\", \"themeCollection\": {\"baseTheme\": {\"name\": \"CY24SU02\", \"version\": \"5.52\", \"type\": 2}}, \"activeSectionIndex\": 0, \"defaultDrillFilterOtherVisuals\": true}",
+  "layoutOptimization": 0,
+  "sections": [
+    {
+      "id": "Section_Overview",
+      "name": "Executive Climate Overview",
+      "displayName": "Executive Climate Overview & Geospatial Heat",
+      "width": 1280.0,
+      "height": 720.0,
+      "ordinal": 0,
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 15.0,
+          "z": 1000,
+          "width": 1240.0,
+          "height": 65.0,
+          "config": "{\"name\": \"header_textbox\", \"singleVisual\": {\"visualType\": \"textbox\", \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"UrbanHeatIQ | Urban Heat Island Vulnerability & Climate Resilience Decision System\", \"textStyle\": {\"fontFamily\": \"Segoe UI Semibold\", \"fontSize\": \"18pt\", \"color\": \"#0F172A\"}}, {\"value\": \"\\nSatellite Earth Observation (Landsat 8/9 & Sentinel-2) | Star Schema Data Warehouse | B.Tech CSE Capstone\", \"textStyle\": {\"fontFamily\": \"Segoe UI\", \"fontSize\": \"9pt\", \"color\": \"#64748B\"}}]}]}}]}}}"
+        },
+        {
+          "x": 20.0,
+          "y": 90.0,
+          "z": 1001,
+          "width": 230.0,
+          "height": 100.0,
+          "config": "{\"name\": \"card_avg_temp\", \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Avg_Surface_Temp\"}]}}}"
+        },
+        {
+          "x": 265.0,
+          "y": 90.0,
+          "z": 1002,
+          "width": 230.0,
+          "height": 100.0,
+          "config": "{\"name\": \"card_max_uhi\", \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Max_UHI_Delta\"}]}}}"
+        },
+        {
+          "x": 510.0,
+          "y": 90.0,
+          "z": 1003,
+          "width": 230.0,
+          "height": 100.0,
+          "config": "{\"name\": \"card_critical_zones\", \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Critical_Zone_Count\"}]}}}"
+        },
+        {
+          "x": 755.0,
+          "y": 90.0,
+          "z": 1004,
+          "width": 240.0,
+          "height": 100.0,
+          "config": "{\"name\": \"card_canopy_deficit\", \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Canopy_Deficit_Pct\"}]}}}"
+        },
+        {
+          "x": 1010.0,
+          "y": 90.0,
+          "z": 1005,
+          "width": 250.0,
+          "height": 100.0,
+          "config": "{\"name\": \"card_cooling_benefit\", \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Estimated_Cooling_Benefit_C\"}]}}}"
+        },
+        {
+          "x": 20.0,
+          "y": 205.0,
+          "z": 1006,
+          "width": 730.0,
+          "height": 495.0,
+          "config": "{\"name\": \"map_geospatial_zones\", \"singleVisual\": {\"visualType\": \"map\", \"projections\": {\"Latitude\": [{\"queryRef\": \"Dim_Zone.latitude\"}], \"Longitude\": [{\"queryRef\": \"Dim_Zone.longitude\"}], \"Size\": [{\"queryRef\": \"Fact_Zone_Metrics.surface_temp_c\"}], \"Legend\": [{\"queryRef\": \"Dim_Vulnerability_Tier.vulnerability_tier\"}], \"Tooltips\": [{\"queryRef\": \"Dim_Zone.zone_name\"}, {\"queryRef\": \"Dim_Zone.zone_type\"}, {\"queryRef\": \"Fact_Zone_Metrics.tree_canopy_pct\"}, {\"queryRef\": \"Fact_Zone_Metrics.heat_hospitalizations_per_10k\"}]}}}"
+        },
+        {
+          "x": 765.0,
+          "y": 205.0,
+          "z": 1007,
+          "width": 495.0,
+          "height": 240.0,
+          "config": "{\"name\": \"bar_typology_temperatures\", \"singleVisual\": {\"visualType\": \"barChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Dim_Zone.zone_type\"}], \"Y\": [{\"queryRef\": \"_Measures.Avg_Surface_Temp\"}]}}}"
+        },
+        {
+          "x": 765.0,
+          "y": 460.0,
+          "z": 1008,
+          "width": 495.0,
+          "height": 240.0,
+          "config": "{\"name\": \"donut_vulnerability_breakdown\", \"singleVisual\": {\"visualType\": \"pieChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Dim_Vulnerability_Tier.vulnerability_tier\"}], \"Y\": [{\"queryRef\": \"Fact_Zone_Metrics.zone_id\"}]}}}"
+        }
+      ]
+    },
+    {
+      "id": "Section_Regression_EJ",
+      "name": "Biophysical & Environmental Justice",
+      "displayName": "Biophysical OLS Cooling & Environmental Justice",
+      "width": 1280.0,
+      "height": 720.0,
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 15.0,
+          "z": 2000,
+          "width": 1240.0,
+          "height": 65.0,
+          "config": "{\"name\": \"header_ej\", \"singleVisual\": {\"visualType\": \"textbox\", \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Pillar 2 & 4: Tree Canopy Cooling Physics (OLS R\\u00b2=0.71) & Socioeconomic Vulnerability\", \"textStyle\": {\"fontFamily\": \"Segoe UI Semibold\", \"fontSize\": \"17pt\", \"color\": \"#0F172A\"}}, {\"value\": \"\\nEmpirical OLS Cooling Rate: -2.6\\u00b0C per +10% Canopy | Disproportionate Low-Income Burden\", \"textStyle\": {\"fontFamily\": \"Segoe UI\", \"fontSize\": \"9pt\", \"color\": \"#64748B\"}}]}]}}]}}}"
+        },
+        {
+          "x": 20.0,
+          "y": 90.0,
+          "z": 2001,
+          "width": 610.0,
+          "height": 610.0,
+          "config": "{\"name\": \"scatter_canopy_temp\", \"singleVisual\": {\"visualType\": \"scatterChart\", \"projections\": {\"X\": [{\"queryRef\": \"Fact_Zone_Metrics.tree_canopy_pct\"}], \"Y\": [{\"queryRef\": \"Fact_Zone_Metrics.surface_temp_c\"}], \"Details\": [{\"queryRef\": \"Dim_Zone.zone_name\"}], \"Legend\": [{\"queryRef\": \"Dim_Vulnerability_Tier.vulnerability_tier\"}]}}}"
+        },
+        {
+          "x": 645.0,
+          "y": 90.0,
+          "z": 2002,
+          "width": 615.0,
+          "height": 610.0,
+          "config": "{\"name\": \"scatter_income_temp\", \"singleVisual\": {\"visualType\": \"scatterChart\", \"projections\": {\"X\": [{\"queryRef\": \"Fact_Zone_Metrics.median_income_usd\"}], \"Y\": [{\"queryRef\": \"Fact_Zone_Metrics.surface_temp_c\"}], \"Size\": [{\"queryRef\": \"Fact_Zone_Metrics.heat_hospitalizations_per_10k\"}], \"Details\": [{\"queryRef\": \"Dim_Zone.zone_name\"}], \"Legend\": [{\"queryRef\": \"Dim_Vulnerability_Tier.vulnerability_tier\"}]}}}"
+        }
+      ]
+    },
+    {
+      "id": "Section_Grid_Stress",
+      "name": "Energy Grid Infrastructure",
+      "displayName": "Municipal Power Grid Strain & Heatwave Trends",
+      "width": 1280.0,
+      "height": 720.0,
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 15.0,
+          "z": 3000,
+          "width": 1240.0,
+          "height": 65.0,
+          "config": "{\"name\": \"header_grid\", \"singleVisual\": {\"visualType\": \"textbox\", \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Pillar 3: 10-Year Municipal Grid Strain (2015\\u20132024) vs Extreme Heat Surge\", \"textStyle\": {\"fontFamily\": \"Segoe UI Semibold\", \"fontSize\": \"17pt\", \"color\": \"#0F172A\"}}, {\"value\": \"\\nDecade Trend: Summer Peak Electrical Load +37% (6,850 MW to 9,380 MW) as Days \\u226535\\u00b0C Surged from 14 to 42\", \"textStyle\": {\"fontFamily\": \"Segoe UI\", \"fontSize\": \"9pt\", \"color\": \"#64748B\"}}]}]}}]}}}"
+        },
+        {
+          "x": 20.0,
+          "y": 90.0,
+          "z": 3001,
+          "width": 1240.0,
+          "height": 400.0,
+          "config": "{\"name\": \"dual_axis_grid_load\", \"singleVisual\": {\"visualType\": \"lineClusteredColumnComboChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Dim_Date_Year.year\"}], \"Y\": [{\"queryRef\": \"Fact_Grid_Stress.summer_peak_grid_load_mw\"}], \"Y2\": [{\"queryRef\": \"Fact_Grid_Stress.extreme_heat_days_count\"}]}}}"
+        },
+        {
+          "x": 20.0,
+          "y": 505.0,
+          "z": 3002,
+          "width": 610.0,
+          "height": 195.0,
+          "config": "{\"name\": \"table_grid_metrics\", \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"Dim_Date_Year.year\"}, {\"queryRef\": \"Dim_Date_Year.climate_era\"}, {\"queryRef\": \"Fact_Grid_Stress.summer_peak_grid_load_mw\"}, {\"queryRef\": \"Fact_Grid_Stress.extreme_heat_days_count\"}, {\"queryRef\": \"Fact_Grid_Stress.cooling_degree_days_cdd\"}, {\"queryRef\": \"Fact_Grid_Stress.grid_stress_alert_events\"}]}}}"
+        },
+        {
+          "x": 645.0,
+          "y": 505.0,
+          "z": 3003,
+          "width": 615.0,
+          "height": 195.0,
+          "config": "{\"name\": \"line_admissions_trend\", \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Dim_Date_Year.year\"}], \"Y\": [{\"queryRef\": \"Fact_Grid_Stress.total_heat_emergency_admissions\"}]}}}"
+        }
+      ]
+    }
+  ]
+}

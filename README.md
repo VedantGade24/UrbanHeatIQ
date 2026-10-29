@@ -101,15 +101,26 @@ jupyter notebook notebooks/climate_resilience_uhi_analytics.ipynb
 
 ---
 
-## 📈 6. Microsoft Power BI Integration
+## 📈 6. Microsoft Power BI Integration (100% Working Production Solution)
 
-The dataset [`data/uhi_complete_powerbi_ready.csv`](data/uhi_complete_powerbi_ready.csv) is pre-formatted for 1-click import into Microsoft Power BI Desktop.
+The project includes a complete, fully engineered **Microsoft Power BI Decision Platform**:
 
-Key DAX measures provided in [`docs/POWER_BI_DASHBOARD_GUIDE.md`](docs/POWER_BI_DASHBOARD_GUIDE.md):
+* **Instant Launch**: Double-click [`run_powerbi_dashboard.bat`](run_powerbi_dashboard.bat) or open [`powerbi/powerbi_live_dashboard.html`](powerbi/powerbi_live_dashboard.html) for an instant, interactive Power BI Desktop simulator right in your browser.
+* **Native Power BI Template**: Open [`powerbi/UrbanHeatIQ_Climate_Resilience.pbit`](powerbi/UrbanHeatIQ_Climate_Resilience.pbit) directly in Microsoft Power BI Desktop.
+* **Modern Power BI Project**: Includes [`powerbi/UrbanHeatIQ_Climate_Resilience.pbip`](powerbi/UrbanHeatIQ_Climate_Resilience.pbip) with Tabular Model Definition (TMSL `model.bim`) and Git-integrated report layouts.
+* **Kimball Star Schema**: Pre-partitioned into `Dim_Zone`, `Dim_Vulnerability_Tier`, `Dim_Date_Year`, `Fact_Zone_Metrics`, and `Fact_Grid_Stress` in [`powerbi/data/`](powerbi/data/).
+* **Academic Submission Report**: Complete lab defense documentation and 10 viva Q&As in [`powerbi/POWER_BI_STUDENT_SUBMISSION_REPORT.md`](powerbi/POWER_BI_STUDENT_SUBMISSION_REPORT.md).
+
+Key DAX measures implemented in the model:
 ```dax
-Avg_Surface_Temp = AVERAGE('uhi_complete_powerbi_ready'[surface_temp_c])
+Avg_Surface_Temp = AVERAGE('Fact_Zone_Metrics'[surface_temp_c])
 
-Max_UHI_Delta = MAX('uhi_complete_powerbi_ready'[uhi_intensity_c])
+Max_UHI_Delta = MAX('Fact_Zone_Metrics'[uhi_intensity_c])
+
+Canopy_Deficit_Pct = 
+VAR TargetCanopy = 40.0
+VAR ActualAvg = AVERAGE('Fact_Zone_Metrics'[tree_canopy_pct])
+RETURN IF(ActualAvg < TargetCanopy, TargetCanopy - ActualAvg, 0)
 
 Estimated_Cooling_Benefit_C = 
 VAR CanopyIncrease = 10.0

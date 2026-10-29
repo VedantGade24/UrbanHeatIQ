@@ -1,0 +1,449 @@
+{
+  "name": "UrbanHeatIQ_SemanticModel",
+  "compatibilityLevel": 1550,
+  "model": {
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "tables": [
+      {
+        "name": "_Measures",
+        "lineageTag": "tbl-measures-001",
+        "columns": [
+          {
+            "name": "MeasurePlaceholder",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "MeasurePlaceholder"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Measures-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [MeasurePlaceholder = _t])",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Avg_Surface_Temp",
+            "expression": "AVERAGE('Fact_Zone_Metrics'[surface_temp_c])",
+            "formatString": "0.0 \u00b0C",
+            "description": "Average Land Surface Temperature across filtered zones"
+          },
+          {
+            "name": "Max_UHI_Delta",
+            "expression": "MAX('Fact_Zone_Metrics'[uhi_intensity_c])",
+            "formatString": "+0.0 \u00b0C",
+            "description": "Peak Urban Heat Island temperature anomaly above rural baseline"
+          },
+          {
+            "name": "Min_Surface_Temp",
+            "expression": "MIN('Fact_Zone_Metrics'[surface_temp_c])",
+            "formatString": "0.0 \u00b0C"
+          },
+          {
+            "name": "Avg_Canopy_Pct",
+            "expression": "AVERAGE('Fact_Zone_Metrics'[tree_canopy_pct])",
+            "formatString": "0.0\\%",
+            "description": "Mean vegetative tree canopy coverage percentage"
+          },
+          {
+            "name": "Canopy_Deficit_Pct",
+            "expression": "VAR TargetCanopy = 40.0 VAR ActualAvg = [Avg_Canopy_Pct] RETURN IF(ActualAvg < TargetCanopy, TargetCanopy - ActualAvg, 0)",
+            "formatString": "0.0\\%",
+            "description": "Tree canopy deficit relative to municipal 40% climate resilience target"
+          },
+          {
+            "name": "Critical_Zone_Count",
+            "expression": "CALCULATE(COUNTROWS('Fact_Zone_Metrics'), 'Fact_Zone_Metrics'[vulnerability_tier] IN {\"Severe / Critical\", \"High Vulnerability\"})",
+            "formatString": "#,##0",
+            "description": "Count of zones categorized as Severe or High Heat Vulnerability"
+          },
+          {
+            "name": "Critical_Zone_Share_Pct",
+            "expression": "DIVIDE([Critical_Zone_Count], COUNTROWS(ALL('Fact_Zone_Metrics')), 0)",
+            "formatString": "0.0\\%"
+          },
+          {
+            "name": "Estimated_Cooling_Benefit_C",
+            "expression": "VAR CanopyInc = 10.0 RETURN CanopyInc * 0.26",
+            "formatString": "-0.00 \u00b0C",
+            "description": "Projected temperature drop from a +10% tree canopy addition based on empirical OLS slope (-0.26 \u00b0C per 1% canopy)"
+          },
+          {
+            "name": "Avg_Heat_Hospitalizations",
+            "expression": "AVERAGE('Fact_Zone_Metrics'[heat_hospitalizations_per_10k])",
+            "formatString": "0.0",
+            "description": "Emergency heat illness hospitalizations per 10,000 residents"
+          },
+          {
+            "name": "Avg_Median_Income",
+            "expression": "AVERAGE('Fact_Zone_Metrics'[median_income_usd])",
+            "formatString": "$#,##0",
+            "description": "Median household income across selected zones"
+          },
+          {
+            "name": "Total_Peak_Load_MW",
+            "expression": "SUM('Fact_Grid_Stress'[summer_peak_grid_load_mw])",
+            "formatString": "#,##0 MW"
+          },
+          {
+            "name": "Total_Extreme_Heat_Days",
+            "expression": "SUM('Fact_Grid_Stress'[extreme_heat_days_count])",
+            "formatString": "#,##0 Days"
+          },
+          {
+            "name": "Grid_Load_Growth_Pct",
+            "expression": "VAR Y2015 = CALCULATE(SUM('Fact_Grid_Stress'[summer_peak_grid_load_mw]), 'Dim_Date_Year'[year] = 2015) VAR Y2024 = CALCULATE(SUM('Fact_Grid_Stress'[summer_peak_grid_load_mw]), 'Dim_Date_Year'[year] = 2024) RETURN DIVIDE(Y2024 - Y2015, Y2015, 0)",
+            "formatString": "+0.0\\%",
+            "description": "10-Year growth in summer peak electrical demand (2015 to 2024)"
+          },
+          {
+            "name": "Hospitalization_Disparity_Ratio",
+            "expression": "DIVIDE(CALCULATE(AVERAGE('Fact_Zone_Metrics'[heat_hospitalizations_per_10k]), 'Fact_Zone_Metrics'[vulnerability_tier] = \"Severe / Critical\"), CALCULATE(AVERAGE('Fact_Zone_Metrics'[heat_hospitalizations_per_10k]), 'Fact_Zone_Metrics'[vulnerability_tier] = \"Low Vulnerability\"), 1)",
+            "formatString": "0.0 \"x\"",
+            "description": "Disparity multiplier in emergency heat hospital admissions between Severe and Low vulnerability zones"
+          }
+        ]
+      },
+      {
+        "name": "Dim_Zone",
+        "lineageTag": "tbl-dim-zone-001",
+        "columns": [
+          {
+            "name": "zone_id",
+            "dataType": "string",
+            "sourceColumn": "zone_id",
+            "isKey": true
+          },
+          {
+            "name": "zone_name",
+            "dataType": "string",
+            "sourceColumn": "zone_name"
+          },
+          {
+            "name": "zone_type",
+            "dataType": "string",
+            "sourceColumn": "zone_type"
+          },
+          {
+            "name": "geographic_sector",
+            "dataType": "string",
+            "sourceColumn": "geographic_sector"
+          },
+          {
+            "name": "latitude",
+            "dataType": "double",
+            "sourceColumn": "latitude",
+            "dataCategory": "Latitude"
+          },
+          {
+            "name": "longitude",
+            "dataType": "double",
+            "sourceColumn": "longitude",
+            "dataCategory": "Longitude"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Zone-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"c:/Users/Vedant/OneDrive/Desktop/DV/powerbi/data/Dim_Zone.csv\"), [Delimiter=\",\", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"zone_id\", type text}, {\"zone_name\", type text}, {\"zone_type\", type text}, {\"geographic_sector\", type text}, {\"latitude\", type number}, {\"longitude\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Vulnerability_Tier",
+        "lineageTag": "tbl-dim-tier-001",
+        "columns": [
+          {
+            "name": "vulnerability_tier",
+            "dataType": "string",
+            "sourceColumn": "vulnerability_tier",
+            "isKey": true
+          },
+          {
+            "name": "priority_level",
+            "dataType": "int64",
+            "sourceColumn": "priority_level"
+          },
+          {
+            "name": "risk_rating",
+            "dataType": "string",
+            "sourceColumn": "risk_rating"
+          },
+          {
+            "name": "action_protocol",
+            "dataType": "string",
+            "sourceColumn": "action_protocol"
+          },
+          {
+            "name": "target_canopy_pct",
+            "dataType": "double",
+            "sourceColumn": "target_canopy_pct"
+          },
+          {
+            "name": "color_hex",
+            "dataType": "string",
+            "sourceColumn": "color_hex"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Vulnerability_Tier-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"c:/Users/Vedant/OneDrive/Desktop/DV/powerbi/data/Dim_Vulnerability_Tier.csv\"), [Delimiter=\",\", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"vulnerability_tier\", type text}, {\"priority_level\", Int64.Type}, {\"risk_rating\", type text}, {\"action_protocol\", type text}, {\"target_canopy_pct\", type number}, {\"color_hex\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Date_Year",
+        "lineageTag": "tbl-dim-year-001",
+        "columns": [
+          {
+            "name": "year",
+            "dataType": "int64",
+            "sourceColumn": "year",
+            "isKey": true
+          },
+          {
+            "name": "decade",
+            "dataType": "string",
+            "sourceColumn": "decade"
+          },
+          {
+            "name": "climate_era",
+            "dataType": "string",
+            "sourceColumn": "climate_era"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Date_Year-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"c:/Users/Vedant/OneDrive/Desktop/DV/powerbi/data/Dim_Date_Year.csv\"), [Delimiter=\",\", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"year\", Int64.Type}, {\"decade\", type text}, {\"climate_era\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fact_Zone_Metrics",
+        "lineageTag": "tbl-fact-zone-001",
+        "columns": [
+          {
+            "name": "zone_id",
+            "dataType": "string",
+            "sourceColumn": "zone_id"
+          },
+          {
+            "name": "vulnerability_tier",
+            "dataType": "string",
+            "sourceColumn": "vulnerability_tier"
+          },
+          {
+            "name": "surface_temp_c",
+            "dataType": "double",
+            "sourceColumn": "surface_temp_c"
+          },
+          {
+            "name": "ndvi_index",
+            "dataType": "double",
+            "sourceColumn": "ndvi_index"
+          },
+          {
+            "name": "tree_canopy_pct",
+            "dataType": "double",
+            "sourceColumn": "tree_canopy_pct"
+          },
+          {
+            "name": "impervious_surface_pct",
+            "dataType": "double",
+            "sourceColumn": "impervious_surface_pct"
+          },
+          {
+            "name": "albedo_coefficient",
+            "dataType": "double",
+            "sourceColumn": "albedo_coefficient"
+          },
+          {
+            "name": "median_income_usd",
+            "dataType": "double",
+            "sourceColumn": "median_income_usd"
+          },
+          {
+            "name": "poverty_rate_pct",
+            "dataType": "double",
+            "sourceColumn": "poverty_rate_pct"
+          },
+          {
+            "name": "elderly_pop_pct",
+            "dataType": "double",
+            "sourceColumn": "elderly_pop_pct"
+          },
+          {
+            "name": "ac_penetration_pct",
+            "dataType": "double",
+            "sourceColumn": "ac_penetration_pct"
+          },
+          {
+            "name": "heat_hospitalizations_per_10k",
+            "dataType": "double",
+            "sourceColumn": "heat_hospitalizations_per_10k"
+          },
+          {
+            "name": "uhi_intensity_c",
+            "dataType": "double",
+            "sourceColumn": "uhi_intensity_c"
+          },
+          {
+            "name": "heat_vulnerability_score",
+            "dataType": "double",
+            "sourceColumn": "heat_vulnerability_score"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Fact_Zone_Metrics-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"c:/Users/Vedant/OneDrive/Desktop/DV/powerbi/data/Fact_Zone_Metrics.csv\"), [Delimiter=\",\", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"zone_id\", type text}, {\"vulnerability_tier\", type text}, {\"surface_temp_c\", type number}, {\"ndvi_index\", type number}, {\"tree_canopy_pct\", type number}, {\"impervious_surface_pct\", type number}, {\"albedo_coefficient\", type number}, {\"median_income_usd\", type number}, {\"poverty_rate_pct\", type number}, {\"elderly_pop_pct\", type number}, {\"ac_penetration_pct\", type number}, {\"heat_hospitalizations_per_10k\", type number}, {\"uhi_intensity_c\", type number}, {\"heat_vulnerability_score\", type number}})",
+                "in",
+                "    #\"Changed Type\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fact_Grid_Stress",
+        "lineageTag": "tbl-fact-grid-001",
+        "columns": [
+          {
+            "name": "year",
+            "dataType": "int64",
+            "sourceColumn": "year"
+          },
+          {
+            "name": "extreme_heat_days_count",
+            "dataType": "int64",
+            "sourceColumn": "extreme_heat_days_count"
+          },
+          {
+            "name": "summer_peak_grid_load_mw",
+            "dataType": "int64",
+            "sourceColumn": "summer_peak_grid_load_mw"
+          },
+          {
+            "name": "cooling_degree_days_cdd",
+            "dataType": "int64",
+            "sourceColumn": "cooling_degree_days_cdd"
+          },
+          {
+            "name": "heatwave_events_count",
+            "dataType": "int64",
+            "sourceColumn": "heatwave_events_count"
+          },
+          {
+            "name": "grid_stress_alert_events",
+            "dataType": "int64",
+            "sourceColumn": "grid_stress_alert_events"
+          },
+          {
+            "name": "total_heat_emergency_admissions",
+            "dataType": "int64",
+            "sourceColumn": "total_heat_emergency_admissions"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Fact_Grid_Stress-Partition",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"c:/Users/Vedant/OneDrive/Desktop/DV/powerbi/data/Fact_Grid_Stress.csv\"), [Delimiter=\",\", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"year\", Int64.Type}, {\"extreme_heat_days_count\", Int64.Type}, {\"summer_peak_grid_load_mw\", Int64.Type}, {\"cooling_degree_days_cdd\", Int64.Type}, {\"heatwave_events_count\", Int64.Type}, {\"grid_stress_alert_events\", Int64.Type}, {\"total_heat_emergency_admissions\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "rel_zone_to_metrics",
+        "fromTable": "Fact_Zone_Metrics",
+        "fromColumn": "zone_id",
+        "toTable": "Dim_Zone",
+        "toColumn": "zone_id",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "rel_tier_to_metrics",
+        "fromTable": "Fact_Zone_Metrics",
+        "fromColumn": "vulnerability_tier",
+        "toTable": "Dim_Vulnerability_Tier",
+        "toColumn": "vulnerability_tier",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "rel_year_to_grid",
+        "fromTable": "Fact_Grid_Stress",
+        "fromColumn": "year",
+        "toTable": "Dim_Date_Year",
+        "toColumn": "year",
+        "crossFilteringBehavior": "bothDirections"
+      }
+    ]
+  }
+}

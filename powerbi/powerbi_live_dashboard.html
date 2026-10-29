@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Power BI Desktop - UrbanHeatIQ_Climate_Resilience.pbip</title>
+  
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Google Fonts: Segoe UI / Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pbi-yellow: #F2C811;
+      --pbi-yellow-dark: #D4A90A;
+      --pbi-header-bg: #2B2B2B;
+      --pbi-ribbon-bg: #F3F3F3;
+      --pbi-ribbon-border: #E0E0E0;
+      --pbi-canvas-bg: #EAEAEA;
+      --pbi-pane-bg: #FAFAFA;
+      --pbi-border: #D1D5DB;
+      --pbi-text: #1F2937;
+      --pbi-text-muted: #6B7280;
+      --pbi-accent: #118DFF;
+      --pbi-card-bg: #FFFFFF;
+      --danger: #EF4444;
+      --warning: #F59E0B;
+      --success: #10B981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: #1E1E1E;
+      color: var(--pbi-text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* 1. Window Title Bar */
+    .pbi-window-titlebar {
+      background: #202020;
+      color: #E0E0E0;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      font-size: 12px;
+      border-bottom: 1px solid #333333;
+    }
+
+    .titlebar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pbi-logo {
+      width: 18px;
+      height: 18px;
+      background: var(--pbi-yellow);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #000;
+      font-size: 10px;
+    }
+
+    .file-name {
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .btech-tag {
+      background: rgba(242, 200, 17, 0.2);
+      color: #F2C811;
+      border: 1px solid rgba(242, 200, 17, 0.4);
+      padding: 1px 7px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: #AAAAAA;
+    }
+
+    /* 2. Ribbon Bar */
+    .pbi-ribbon-tabs {
+      background: #2B2B2B;
+      color: #CCCCCC;
+      display: flex;
+      height: 30px;
+      padding: 0 8px;
+      font-size: 12px;
+      border-bottom: 1px solid #383838;
+    }
+
+    .ribbon-tab {
+      padding: 6px 14px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      display: flex;
+      align-items: center;
+    }
+
+    .ribbon-tab.active {
+      color: #FFFFFF;
+      border-bottom: 2px solid var(--pbi-yellow);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .pbi-ribbon-toolbar {
+      background: #F8F9FA;
+      border-bottom: 1px solid #D6D8DB;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      height: 60px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .tool-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-right: 1px solid #E2E8F0;
+      padding-right: 14px;
+      height: 100%;
+    }
+
+    .tool-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 11px;
+      color: #333333;
+      cursor: pointer;
+      gap: 3px;
+      transition: all 0.15s;
+    }
+
+    .tool-btn:hover {
+      background: #E5E7EB;
+      border-color: #D1D5DB;
+    }
+
+    .tool-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #4B5563;
+    }
+
+    .tool-btn.highlight {
+      background: #FEF3C7;
+      border-color: #FCD34D;
+      color: #92400E;
+      font-weight: 600;
+    }
+
+    /* 3. Main Workspace Container */
+    .pbi-workspace {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 156px);
+      overflow: hidden;
+      background: var(--pbi-canvas-bg);
+    }
+
+    /* Left Navigation Rail (Report / Data / Model) */
+    .pbi-left-rail {
+      width: 44px;
+      background: #252525;
+      border-right: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      gap: 12px;
+    }
+
+    .rail-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #9CA3AF;
+      transition: all 0.15s;
+      position: relative;
+    }
+
+    .rail-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFF;
+    }
+
+    .rail-btn.active {
+      background: rgba(242, 200, 17, 0.2);
+      color: var(--pbi-yellow);
+      border-left: 3px solid var(--pbi-yellow);
+    }
+
+    .rail-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Canvas Center View */
+    .pbi-canvas-area {
+      flex: 1;
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ECEFF1;
+    }
+
+    .canvas-sheet {
+      width: 100%;
+      max-width: 1240px;
+      background: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      min-height: 720px;
+      display: flex;
+      flex-direction: column;
+      padding: 16px 20px;
+      position: relative;
+    }
+
+    /* Right Sidebar (Panes) */
+    .pbi-right-panes {
+      width: 300px;
+      background: #FAFAFA;
+      border-left: 1px solid #D6D8DB;
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+    }
+
+    .pane-header {
+      background: #F3F4F6;
+      border-bottom: 1px solid #E5E7EB;
+      padding: 8px 12px;
+      font-weight: 600;
+      color: #374151;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fields-tree {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .table-node {
+      margin-bottom: 8px;
+    }
+
+    .table-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #1F2937;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+
+    .table-title:hover {
+      background: #E5E7EB;
+    }
+
+    .table-fields {
+      padding-left: 20px;
+      margin-top: 3px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #4B5563;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    .field-item:hover {
+      background: #EEF2F6;
+    }
+
+    .calc-icon {
+      color: #D97706;
+      font-weight: 700;
+      font-size: 10px;
+      background: #FEF3C7;
+      padding: 1px 3px;
+      border-radius: 2px;
+    }
+
+    .geo-icon {
+      color: #2563EB;
+      font-size: 11px;
+    }
+
+    /* 4. Canvas Header & Filters */
+    .canvas-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #F1F5F9;
+    }
+
+    .report-title-block h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .report-title-block p {
+      font-size: 12px;
+      color: #64748B;
+      margin-top: 2px;
+    }
+
+    .slicer-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .slicer-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #475569;
+    }
+
+    .slicer-select {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #CBD5E1;
+      background: #FFF;
+      color: #1E293B;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .slicer-btn-reset {
+      background: #E2E8F0;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      cursor: pointer;
+      color: #475569;
+    }
+
+    .slicer-btn-reset:hover {
+      background: #CBD5E1;
+    }
+
+    /* 5. KPI Cards Grid */
+    .kpi-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .kpi-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid var(--pbi-accent);
+      border-radius: 6px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .kpi-card.red { border-left-color: #EF4444; }
+    .kpi-card.orange { border-left-color: #F97316; }
+    .kpi-card.green { border-left-color: #10B981; }
+    .kpi-card.purple { border-left-color: #8B5CF6; }
+
+    .kpi-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #64748B;
+      letter-spacing: 0.4px;
+    }
+
+    .kpi-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-top: 4px;
+    }
+
+    .kpi-subtitle {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+
+    /* 6. Dashboard Grid Rows */
+    .dash-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .dash-row.full {
+      grid-template-columns: 1fr;
+    }
+
+    .dash-row.spatial {
+      grid-template-columns: 1.4fr 1fr;
+    }
+
+    .dash-panel {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .panel-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .panel-badge {
+      font-size: 10px;
+      font-weight: 600;
+      background: #EFF6FF;
+      color: #2563EB;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    #map-container {
+      height: 380px;
+      width: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+    }
+
+    .chart-box {
+      position: relative;
+      flex: 1;
+      min-height: 240px;
+      width: 100%;
+    }
+
+    /* Data Table Styling */
+    .pbi-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .pbi-table th {
+      background: #F8FAFC;
+      color: #475569;
+      padding: 6px 8px;
+      text-align: left;
+      border-bottom: 2px solid #CBD5E1;
+      font-weight: 600;
+    }
+
+    .pbi-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #F1F5F9;
+      color: #1E293B;
+    }
+
+    .pbi-table tr:hover {
+      background: #F8FAFC;
+    }
+
+    /* Model View Visuals */
+    .model-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      background: #18181B;
+      border-radius: 6px;
+      color: #FAFAFA;
+      min-height: 520px;
+    }
+
+    .star-schema-canvas {
+      display: grid;
+      grid-template-columns: 240px 100px 320px 100px 240px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .schema-node {
+      background: #27272A;
+      border: 1px solid #3F3F46;
+      border-radius: 6px;
+      padding: 10px 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .schema-node.fact {
+      border-top: 4px solid var(--pbi-yellow);
+      background: #2E2818;
+    }
+
+    .schema-node.dim {
+      border-top: 4px solid #38BDF8;
+    }
+
+    .schema-node.calc {
+      border-top: 4px solid #A855F7;
+    }
+
+    .node-header {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      color: #F4F4F5;
+    }
+
+    .node-col {
+      font-size: 11px;
+      color: #A1A1AA;
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0;
+      border-bottom: 1px solid #333338;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .node-col.pk {
+      color: #FCD34D;
+      font-weight: 600;
+    }
+
+    .node-col.fk {
+      color: #67E8F9;
+    }
+
+    .connector-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #71717A;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .connector-line hr {
+      width: 100%;
+      border: 1px dashed #71717A;
+      margin: 4px 0;
+    }
+
+    /* 7. Bottom Navigation Bar */
+    .pbi-footer-tabs {
+      background: #FFFFFF;
+      border-top: 1px solid #D6D8DB;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      font-size: 12px;
+    }
+
+    .page-tab-list {
+      display: flex;
+      height: 100%;
+    }
+
+    .page-tab {
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      border-right: 1px solid #E5E7EB;
+      color: #4B5563;
+      font-weight: 500;
+      background: #F9FAFB;
+      transition: all 0.15s;
+    }
+
+    .page-tab:hover {
+      background: #F3F4F6;
+      color: #111827;
+    }
+
+    .page-tab.active {
+      background: #FFFFFF;
+      color: #000000;
+      font-weight: 700;
+      border-bottom: 3px solid var(--pbi-yellow);
+    }
+
+    .status-bar-info {
+      color: #6B7280;
+      font-size: 11px;
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Interactive Simulation Slider */
+    .sim-slider-box {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .slider-label {
+      font-size: 12px;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .slider-input {
+      flex: 1;
+      accent-color: #16A34A;
+      cursor: pointer;
+    }
+
+    .sim-result {
+      font-size: 13px;
+      font-weight: 700;
+      color: #15803D;
+      background: #DCFCE7;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Window Title Bar -->
+  <div class="pbi-window-titlebar">
+    <div class="titlebar-left">
+      <div class="pbi-logo">PBI</div>
+      <span class="file-name">UrbanHeatIQ_Climate_Resilience.pbip - Microsoft Power BI Desktop</span>
+      <span class="btech-tag">B.Tech 3rd Year CSE Capstone | Roll: 24-CSE-UHI</span>
+    </div>
+    <div class="window-controls">
+      <span>—</span>
+      <span>□</span>
+      <span>✕</span>
+    </div>
+  </div>
+
+  <!-- 2. Ribbon Bar -->
+  <div class="pbi-ribbon-tabs">
+    <div class="ribbon-tab active">Home</div>
+    <div class="ribbon-tab">Insert</div>
+    <div class="ribbon-tab">Modeling</div>
+    <div class="ribbon-tab">View</div>
+    <div class="ribbon-tab">Optimize</div>
+    <div class="ribbon-tab">Help</div>
+  </div>
+
+  <div class="pbi-ribbon-toolbar">
+    <div class="tool-group">
+      <button class="tool-btn highlight" onclick="downloadPbit()">
+        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+        <span>Open PBIT</span>
+      </button>
+      <button class="tool-btn" onclick="resetFilters()">
+        <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        <span>Refresh Data</span>
+      </button>
+    </div>
+
+    <div class="tool-group">
+      <button class="tool-btn" onclick="switchPage('overview')">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span>Executive View</span>
+      </button>
+      <button class="tool-btn" onclick="switchPage('ej')">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        <span>Biophysical & EJ</span>
+      </button>
+      <button class="tool-btn" onclick="switchPage('grid')">
+        <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+        <span>Energy Grid</span>
+      </button>
+      <button class="tool-btn" onclick="switchPage('model')">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <span>Star Schema Model</span>
+      </button>
+    </div>
+
+    <div class="tool-group" style="border: none;">
+      <span style="font-size: 11px; color: #64748B;">Semantic Model: <strong>Import Mode (TMSL)</strong> | 5 Tables | 14 DAX Measures</span>
+    </div>
+  </div>
+
+  <!-- 3. Main Workspace Container -->
+  <div class="pbi-workspace">
+    <!-- Left Navigation Rail -->
+    <div class="pbi-left-rail">
+      <div class="rail-btn active" id="rail-report" title="Report Canvas" onclick="switchPage('overview')">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+      </div>
+      <div class="rail-btn" id="rail-model" title="Model View (Star Schema)" onclick="switchPage('model')">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"/></svg>
+      </div>
+    </div>
+
+    <!-- Center Canvas Area -->
+    <div class="pbi-canvas-area">
+      <div class="canvas-sheet">
+        
+        <!-- Top Title & Global Slicers -->
+        <div class="canvas-topbar">
+          <div class="report-title-block">
+            <h1 id="page-title">Executive Climate Overview & Geospatial Microclimates</h1>
+            <p id="page-subtitle">Multi-scale Satellite Earth Observation (Landsat 8/9 TIRS & Sentinel-2) | Urban Heat Island Analytics</p>
+          </div>
+
+          <div class="slicer-bar">
+            <div class="slicer-group">
+              <label>Zone Typology:</label>
+              <select id="slicer-zone-type" class="slicer-select" onchange="applyFilters()">
+                <option value="ALL">All Typologies (50 Zones)</option>
+                <option value="Commercial Core">Commercial Core</option>
+                <option value="Industrial">Industrial</option>
+                <option value="High-Density Residential">High-Density Residential</option>
+                <option value="Suburban Residential">Suburban Residential</option>
+                <option value="Affluent Greenbelt">Affluent Greenbelt</option>
+              </select>
+            </div>
+
+            <div class="slicer-group">
+              <label>Vulnerability Tier:</label>
+              <select id="slicer-tier" class="slicer-select" onchange="applyFilters()">
+                <option value="ALL">All Tiers</option>
+                <option value="Severe / Critical">Severe / Critical</option>
+                <option value="High Vulnerability">High Vulnerability</option>
+                <option value="Moderate Vulnerability">Moderate Vulnerability</option>
+                <option value="Low Vulnerability">Low Vulnerability</option>
+              </select>
+            </div>
+
+            <button class="slicer-btn-reset" onclick="resetFilters()">Reset</button>
+          </div>
+        </div>
+
+        <!-- KPI Cards Grid (DAX Measures) -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">[Avg_Surface_Temp]</div>
+            <div class="kpi-value" id="kpi-avg-temp">36.1 °C</div>
+            <div class="kpi-subtitle">Mean Land Surface Temp</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">[Max_UHI_Delta]</div>
+            <div class="kpi-value" id="kpi-max-uhi">+17.3 °C</div>
+            <div class="kpi-subtitle">Peak Rural Offset Delta</div>
+          </div>
+          <div class="kpi-card orange">
+            <div class="kpi-label">[Critical_Zone_Count]</div>
+            <div class="kpi-value" id="kpi-critical-count">21 Zones</div>
+            <div class="kpi-subtitle" id="kpi-critical-share">42.0% of Metro Area</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">[Canopy_Deficit_Pct]</div>
+            <div class="kpi-value" id="kpi-canopy-deficit">21.2%</div>
+            <div class="kpi-subtitle">Target: 40.0% Canopy</div>
+          </div>
+          <div class="kpi-card purple">
+            <div class="kpi-label">[Estimated_Cooling_Benefit]</div>
+            <div class="kpi-value" id="kpi-cooling-benefit">-2.60 °C</div>
+            <div class="kpi-subtitle">From +10% Tree Canopy</div>
+          </div>
+        </div>
+
+        <!-- PAGE 1: EXECUTIVE CLIMATE OVERVIEW -->
+        <div id="page-overview-content">
+          <div class="dash-row spatial">
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>Geospatial Microclimates & Satellite Thermal Heatmap</span>
+                </div>
+                <div class="panel-badge">Folium / Azure Map Visual</div>
+              </div>
+              <div id="map-container"></div>
+            </div>
+
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>Surface Temperature by Neighborhood Typology</span>
+                </div>
+                <div class="panel-badge">Clustered Bar Visual</div>
+              </div>
+              <div class="chart-box">
+                <canvas id="typologyChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-row">
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>Vulnerability Tier Cohort Distribution</span>
+                </div>
+                <div class="panel-badge">Donut Visual</div>
+              </div>
+              <div class="chart-box">
+                <canvas id="tierDonutChart"></canvas>
+              </div>
+            </div>
+
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>Critical Risk Intervention Action Table</span>
+                </div>
+                <div class="panel-badge">Matrix Visual</div>
+              </div>
+              <div style="overflow-x:auto;">
+                <table class="pbi-table">
+                  <thead>
+                    <tr>
+                      <th>Zone ID</th>
+                      <th>Zone Name</th>
+                      <th>Typology</th>
+                      <th>LST (°C)</th>
+                      <th>Canopy</th>
+                      <th>HVI Score</th>
+                      <th>Tier</th>
+                    </tr>
+                  </thead>
+                  <tbody id="interventionTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 2: BIOPHYSICAL OLS & ENVIRONMENTAL JUSTICE -->
+        <div id="page-ej-content" style="display: none;">
+          <div class="sim-slider-box">
+            <div class="slider-label">🌲 Interactive Policy Simulation: Add Tree Canopy to Neighborhoods</div>
+            <input type="range" id="canopySlider" class="slider-input" min="0" max="30" step="5" value="10" oninput="updateSimulation(this.value)">
+            <div class="sim-result" id="sliderResult">Selected: +10% Canopy | Projected Cooling: -2.60 °C</div>
+          </div>
+
+          <div class="dash-row">
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>OLS Regression: Tree Canopy (%) vs. Surface Temp (°C)</span>
+                </div>
+                <div class="panel-badge">R² = 0.71 | p &lt; 0.001</div>
+              </div>
+              <div class="chart-box" style="height: 380px;">
+                <canvas id="olsScatterChart"></canvas>
+              </div>
+            </div>
+
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>Environmental Justice: Median Income vs Surface Temp</span>
+                </div>
+                <div class="panel-badge">Bubble Size = ER Admissions</div>
+              </div>
+              <div class="chart-box" style="height: 380px;">
+                <canvas id="ejScatterChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 3: ENERGY GRID INFRASTRUCTURE -->
+        <div id="page-grid-content" style="display: none;">
+          <div class="dash-panel" style="margin-bottom: 16px;">
+            <div class="panel-header">
+              <div class="panel-title">
+                <span>Longitudinal Power Grid Strain (2015–2024): Summer Peak Load (MW) vs. Extreme Heat Days</span>
+              </div>
+              <div class="panel-badge">+37% Peak Grid Demand Growth</div>
+            </div>
+            <div class="chart-box" style="height: 340px;">
+              <canvas id="gridComboChart"></canvas>
+            </div>
+          </div>
+
+          <div class="dash-row">
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>Decade Time-Series Grid Records</span>
+                </div>
+                <div class="panel-badge">Fact_Grid_Stress Table</div>
+              </div>
+              <table class="pbi-table">
+                <thead>
+                  <tr>
+                    <th>Year</th>
+                    <th>Climate Era</th>
+                    <th>Peak Load (MW)</th>
+                    <th>Days ≥ 35°C</th>
+                    <th>CDD</th>
+                    <th>Alerts</th>
+                  </tr>
+                </thead>
+                <tbody id="gridTableBody"></tbody>
+              </table>
+            </div>
+
+            <div class="dash-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <span>Heat Emergency Hospitalizations Multiplier</span>
+                </div>
+                <div class="panel-badge">Public Health Metric</div>
+              </div>
+              <div class="chart-box">
+                <canvas id="admissionsLineChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 4: STAR SCHEMA DATA MODEL VIEW -->
+        <div id="page-model-content" style="display: none;">
+          <div class="model-diagram">
+            <h2 style="font-size: 16px; color: var(--pbi-yellow); margin-bottom: 4px;">Power BI Tabular Model Architecture (Star Schema)</h2>
+            <p style="font-size: 12px; color: #A1A1AA; max-width: 800px; text-align: center;">
+              Engineered according to Ralph Kimball dimensional modeling principles. Fact tables capture observational measurements while Dimension tables provide filtering attributes, linked via 1-to-many bi-directional relationships.
+            </p>
+
+            <div class="star-schema-canvas">
+              
+              <!-- Dim_Zone -->
+              <div class="schema-node dim">
+                <div class="node-header">
+                  <span>Dim_Zone</span>
+                  <span style="color: #38BDF8;">1</span>
+                </div>
+                <div class="node-col pk"><span>🔑 zone_id</span><span>Text</span></div>
+                <div class="node-col"><span>zone_name</span><span>Text</span></div>
+                <div class="node-col"><span>zone_type</span><span>Text</span></div>
+                <div class="node-col"><span>geographic_sector</span><span>Text</span></div>
+                <div class="node-col"><span>latitude</span><span>Decimal</span></div>
+                <div class="node-col"><span>longitude</span><span>Decimal</span></div>
+              </div>
+
+              <!-- Relationship -->
+              <div class="connector-line">
+                <span>1 : *</span>
+                <hr>
+                <span>◄──►</span>
+              </div>
+
+              <!-- Fact_Zone_Metrics -->
+              <div class="schema-node fact">
+                <div class="node-header">
+                  <span>Fact_Zone_Metrics</span>
+                  <span style="color: var(--pbi-yellow);">*</span>
+                </div>
+                <div class="node-col fk"><span>🔗 zone_id</span><span>Text</span></div>
+                <div class="node-col fk"><span>🔗 vulnerability_tier</span><span>Text</span></div>
+                <div class="node-col"><span>surface_temp_c</span><span>Decimal</span></div>
+                <div class="node-col"><span>ndvi_index</span><span>Decimal</span></div>
+                <div class="node-col"><span>tree_canopy_pct</span><span>Decimal</span></div>
+                <div class="node-col"><span>impervious_surface_pct</span><span>Decimal</span></div>
+                <div class="node-col"><span>median_income_usd</span><span>Currency</span></div>
+                <div class="node-col"><span>heat_hospitalizations</span><span>Decimal</span></div>
+                <div class="node-col"><span>uhi_intensity_c</span><span>Decimal</span></div>
+              </div>
+
+              <!-- Relationship -->
+              <div class="connector-line">
+                <span>* : 1</span>
+                <hr>
+                <span>◄──►</span>
+              </div>
+
+              <!-- Dim_Vulnerability_Tier -->
+              <div class="schema-node dim">
+                <div class="node-header">
+                  <span>Dim_Vulnerability_Tier</span>
+                  <span style="color: #38BDF8;">1</span>
+                </div>
+                <div class="node-col pk"><span>🔑 vulnerability_tier</span><span>Text</span></div>
+                <div class="node-col"><span>priority_level</span><span>Int64</span></div>
+                <div class="node-col"><span>risk_rating</span><span>Text</span></div>
+                <div class="node-col"><span>action_protocol</span><span>Text</span></div>
+                <div class="node-col"><span>target_canopy_pct</span><span>Decimal</span></div>
+              </div>
+
+            </div>
+
+            <!-- Second Row of Star Schema -->
+            <div style="display: flex; gap: 40px; margin-top: 24px; align-items: center;">
+              
+              <!-- Dim_Date_Year -->
+              <div class="schema-node dim" style="width: 240px;">
+                <div class="node-header">
+                  <span>Dim_Date_Year</span>
+                  <span style="color: #38BDF8;">1</span>
+                </div>
+                <div class="node-col pk"><span>🔑 year</span><span>Int64</span></div>
+                <div class="node-col"><span>decade</span><span>Text</span></div>
+                <div class="node-col"><span>climate_era</span><span>Text</span></div>
+              </div>
+
+              <!-- Relationship -->
+              <div class="connector-line" style="width: 80px;">
+                <span>1 : *</span>
+                <hr>
+                <span>◄──►</span>
+              </div>
+
+              <!-- Fact_Grid_Stress -->
+              <div class="schema-node fact" style="width: 260px;">
+                <div class="node-header">
+                  <span>Fact_Grid_Stress</span>
+                  <span style="color: var(--pbi-yellow);">*</span>
+                </div>
+                <div class="node-col fk"><span>🔗 year</span><span>Int64</span></div>
+                <div class="node-col"><span>summer_peak_grid_load_mw</span><span>Int64</span></div>
+                <div class="node-col"><span>extreme_heat_days_count</span><span>Int64</span></div>
+                <div class="node-col"><span>cooling_degree_days_cdd</span><span>Int64</span></div>
+                <div class="node-col"><span>grid_stress_alert_events</span><span>Int64</span></div>
+              </div>
+
+              <!-- Measures Table -->
+              <div class="schema-node calc" style="width: 240px;">
+                <div class="node-header">
+                  <span>_Measures (DAX)</span>
+                  <span style="color: #C084FC;">fx</span>
+                </div>
+                <div class="node-col"><span>[Avg_Surface_Temp]</span><span>DAX</span></div>
+                <div class="node-col"><span>[Max_UHI_Delta]</span><span>DAX</span></div>
+                <div class="node-col"><span>[Canopy_Deficit_Pct]</span><span>DAX</span></div>
+                <div class="node-col"><span>[Critical_Zone_Count]</span><span>DAX</span></div>
+                <div class="node-col"><span>[Estimated_Cooling]</span><span>DAX</span></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Right Sidebar (Data / Fields Tree) -->
+    <div class="pbi-right-panes">
+      <div class="pane-header">
+        <span>Data (Star Schema Fields)</span>
+        <span style="font-size: 10px; color: #9CA3AF;">TMSL v1550</span>
+      </div>
+
+      <div class="fields-tree">
+        
+        <!-- _Measures -->
+        <div class="table-node">
+          <div class="table-title">
+            <span>📁 _Measures</span>
+          </div>
+          <div class="table-fields">
+            <div class="field-item"><span class="calc-icon">∑</span> Avg_Surface_Temp</div>
+            <div class="field-item"><span class="calc-icon">∑</span> Max_UHI_Delta</div>
+            <div class="field-item"><span class="calc-icon">∑</span> Canopy_Deficit_Pct</div>
+            <div class="field-item"><span class="calc-icon">∑</span> Critical_Zone_Count</div>
+            <div class="field-item"><span class="calc-icon">∑</span> Critical_Zone_Share_Pct</div>
+            <div class="field-item"><span class="calc-icon">∑</span> Estimated_Cooling_Benefit_C</div>
+            <div class="field-item"><span class="calc-icon">∑</span> Grid_Load_Growth_Pct</div>
+            <div class="field-item"><span class="calc-icon">∑</span> Hospitalization_Disparity_Ratio</div>
+          </div>
+        </div>
+
+        <!-- Dim_Zone -->
+        <div class="table-node">
+          <div class="table-title">
+            <span>📊 Dim_Zone</span>
+          </div>
+          <div class="table-fields">
+            <div class="field-item">zone_id (PK)</div>
+            <div class="field-item">zone_name</div>
+            <div class="field-item">zone_type</div>
+            <div class="field-item">geographic_sector</div>
+            <div class="field-item"><span class="geo-icon">🌐</span> latitude</div>
+            <div class="field-item"><span class="geo-icon">🌐</span> longitude</div>
+          </div>
+        </div>
+
+        <!-- Dim_Vulnerability_Tier -->
+        <div class="table-node">
+          <div class="table-title">
+            <span>📊 Dim_Vulnerability_Tier</span>
+          </div>
+          <div class="table-fields">
+            <div class="field-item">vulnerability_tier (PK)</div>
+            <div class="field-item">priority_level</div>
+            <div class="field-item">risk_rating</div>
+            <div class="field-item">action_protocol</div>
+            <div class="field-item">target_canopy_pct</div>
+          </div>
+        </div>
+
+        <!-- Dim_Date_Year -->
+        <div class="table-node">
+          <div class="table-title">
+            <span>📅 Dim_Date_Year</span>
+          </div>
+          <div class="table-fields">
+            <div class="field-item">year (PK)</div>
+            <div class="field-item">decade</div>
+            <div class="field-item">climate_era</div>
+          </div>
+        </div>
+
+        <!-- Fact_Zone_Metrics -->
+        <div class="table-node">
+          <div class="table-title">
+            <span>📈 Fact_Zone_Metrics</span>
+          </div>
+          <div class="table-fields">
+            <div class="field-item">zone_id (FK)</div>
+            <div class="field-item">vulnerability_tier (FK)</div>
+            <div class="field-item"><span class="calc-icon">#</span> surface_temp_c</div>
+            <div class="field-item"><span class="calc-icon">#</span> ndvi_index</div>
+            <div class="field-item"><span class="calc-icon">#</span> tree_canopy_pct</div>
+            <div class="field-item"><span class="calc-icon">#</span> impervious_surface_pct</div>
+            <div class="field-item"><span class="calc-icon">#</span> median_income_usd</div>
+            <div class="field-item"><span class="calc-icon">#</span> heat_hospitalizations</div>
+            <div class="field-item"><span class="calc-icon">#</span> uhi_intensity_c</div>
+          </div>
+        </div>
+
+        <!-- Fact_Grid_Stress -->
+        <div class="table-node">
+          <div class="table-title">
+            <span>⚡ Fact_Grid_Stress</span>
+          </div>
+          <div class="table-fields">
+            <div class="field-item">year (FK)</div>
+            <div class="field-item"><span class="calc-icon">#</span> summer_peak_grid_load_mw</div>
+            <div class="field-item"><span class="calc-icon">#</span> extreme_heat_days_count</div>
+            <div class="field-item"><span class="calc-icon">#</span> cooling_degree_days_cdd</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Bottom Tab Bar -->
+  <div class="pbi-footer-tabs">
+    <div class="page-tab-list">
+      <div class="page-tab active" id="tab-overview" onclick="switchPage('overview')">
+        <span>Executive Climate Overview</span>
+      </div>
+      <div class="page-tab" id="tab-ej" onclick="switchPage('ej')">
+        <span>Biophysical OLS Cooling & EJ</span>
+      </div>
+      <div class="page-tab" id="tab-grid" onclick="switchPage('grid')">
+        <span>Energy Grid Strain (10-Yr)</span>
+      </div>
+      <div class="page-tab" id="tab-model" onclick="switchPage('model')">
+        <span>Star Schema Architecture</span>
+      </div>
+    </div>
+
+    <div class="status-bar-info">
+      <span>Fit to Page: 100% (1280 x 720)</span>
+      <span>DAX Queries: Instant (In-Memory Engine)</span>
+      <span>Rows: 50 Zones | 10 Years</span>
+    </div>
+  </div>
+
+  <!-- Embedded Dataset (50 Zones + 10 Years Grid) -->
+  <script src="../dashboard/zones_data.js"></script>
+
+  <script>
+    // Time Series Energy Grid Data
+    const GRID_DATA = [
+      { year: 2015, extreme_heat_days: 14, peak_load_mw: 6850, cdd: 1120, alerts: 1, admissions: 380, era: 'Historical Baseline (2015-2018)' },
+      { year: 2016, extreme_heat_days: 18, peak_load_mw: 7120, cdd: 1210, alerts: 2, admissions: 440, era: 'Historical Baseline (2015-2018)' },
+      { year: 2017, extreme_heat_days: 16, peak_load_mw: 7040, cdd: 1180, alerts: 1, admissions: 410, era: 'Historical Baseline (2015-2018)' },
+      { year: 2018, extreme_heat_days: 22, peak_load_mw: 7480, cdd: 1340, alerts: 3, admissions: 560, era: 'Historical Baseline (2015-2018)' },
+      { year: 2019, extreme_heat_days: 25, peak_load_mw: 7750, cdd: 1420, alerts: 4, admissions: 620, era: 'Accelerating Warming (2019-2021)' },
+      { year: 2020, extreme_heat_days: 29, peak_load_mw: 8140, cdd: 1560, alerts: 6, admissions: 790, era: 'Accelerating Warming (2019-2021)' },
+      { year: 2021, extreme_heat_days: 27, peak_load_mw: 8020, cdd: 1510, alerts: 5, admissions: 730, era: 'Accelerating Warming (2019-2021)' },
+      { year: 2022, extreme_heat_days: 34, peak_load_mw: 8620, cdd: 1690, alerts: 8, admissions: 940, era: 'Extreme Heat Surge (2022-2024)' },
+      { year: 2023, extreme_heat_days: 38, peak_load_mw: 8950, cdd: 1780, alerts: 11, admissions: 1080, era: 'Extreme Heat Surge (2022-2024)' },
+      { year: 2024, extreme_heat_days: 42, peak_load_mw: 9380, cdd: 1910, alerts: 14, admissions: 1240, era: 'Extreme Heat Surge (2022-2024)' }
+    ];
+
+    let currentFilteredZones = [...ZONES_DATA];
+    let mapInstance = null;
+    let markersLayer = null;
+    let typologyChartInstance = null;
+    let tierDonutChartInstance = null;
+    let olsScatterChartInstance = null;
+    let ejScatterChartInstance = null;
+    let gridComboChartInstance = null;
+    let admissionsLineChartInstance = null;
+
+    // Initialize Dashboard
+    window.addEventListener('DOMContentLoaded', () => {
+      initMap();
+      renderAllVisuals();
+      populateGridTable();
+    });
+
+    // 1. Leaflet Geospatial Map Initialization
+    function initMap() {
+      mapInstance = L.map('map-container', {
+        center: [39.98, -75.14],
+        zoom: 11,
+        zoomControl: true
+      });
+
+      // CartoDB Positron Clean Basemap
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        maxZoom: 18
+      }).addTo(mapInstance);
+
+      markersLayer = L.layerGroup().addTo(mapInstance);
+      updateMapMarkers(currentFilteredZones);
+    }
+
+    function updateMapMarkers(zones) {
+      if (!markersLayer) return;
+      markersLayer.clearLayers();
+
+      zones.forEach(zone => {
+        let color = '#CA8A04'; // Moderate
+        if (zone.vulnerability_tier === 'Severe / Critical') color = '#DC2626';
+        else if (zone.vulnerability_tier === 'High Vulnerability') color = '#EA580C';
+        else if (zone.vulnerability_tier === 'Low Vulnerability') color = '#16A34A';
+
+        const radius = Math.max(5, (zone.surface_temp_c - 25) * 1.3);
+
+        const circle = L.circleMarker([zone.latitude, zone.longitude], {
+          radius: radius,
+          fillColor: color,
+          color: '#FFFFFF',
+          weight: 1.5,
+          opacity: 0.9,
+          fillOpacity: 0.75
+        });
+
+        circle.bindPopup(`
+          <div style="font-family: 'Segoe UI', sans-serif; font-size: 12px; line-height: 1.5;">
+            <strong style="font-size: 13px; color: #1E293B;">${zone.zone_name}</strong><br>
+            <span style="color: #64748B;">[${zone.zone_id}] ${zone.zone_type}</span>
+            <hr style="margin: 6px 0; border: none; border-top: 1px solid #E2E8F0;">
+            <b>Surface Temp:</b> <span style="color:${color}; font-weight:700;">${zone.surface_temp_c}°C</span><br>
+            <b>UHI Delta:</b> +${zone.uhi_intensity_c}°C<br>
+            <b>Tree Canopy:</b> ${zone.tree_canopy_pct}%<br>
+            <b>Median Income:</b> $${zone.median_income_usd.toLocaleString()}<br>
+            <b>Heat Hospitalizations:</b> ${zone.heat_hospitalizations_per_10k} / 10k<br>
+            <b>Vulnerability:</b> <span style="color:${color}; font-weight:700;">${zone.vulnerability_tier}</span>
+          </div>
+        `);
+
+        circle.addTo(markersLayer);
+      });
+    }
+
+    // 2. Render All Charts & Tables
+    function renderAllVisuals() {
+      updateKpis(currentFilteredZones);
+      renderTypologyChart(currentFilteredZones);
+      renderTierDonutChart(currentFilteredZones);
+      renderInterventionTable(currentFilteredZones);
+      renderOlsScatterChart(currentFilteredZones);
+      renderEjScatterChart(currentFilteredZones);
+      renderGridComboChart();
+      renderAdmissionsChart();
+    }
+
+    // Dynamic DAX Measures Evaluation
+    function updateKpis(zones) {
+      if (zones.length === 0) {
+        document.getElementById('kpi-avg-temp').innerText = '0.0 °C';
+        document.getElementById('kpi-max-uhi').innerText = '+0.0 °C';
+        document.getElementById('kpi-critical-count').innerText = '0 Zones';
+        document.getElementById('kpi-critical-share').innerText = '0.0% of Metro Area';
+        document.getElementById('kpi-canopy-deficit').innerText = '0.0%';
+        return;
+      }
+
+      // [Avg_Surface_Temp]
+      const avgTemp = zones.reduce((acc, z) => acc + z.surface_temp_c, 0) / zones.length;
+      document.getElementById('kpi-avg-temp').innerText = avgTemp.toFixed(1) + ' °C';
+
+      // [Max_UHI_Delta]
+      const maxUhi = Math.max(...zones.map(z => z.uhi_intensity_c));
+      document.getElementById('kpi-max-uhi').innerText = '+' + maxUhi.toFixed(1) + ' °C';
+
+      // [Critical_Zone_Count]
+      const critZones = zones.filter(z => z.vulnerability_tier === 'Severe / Critical' || z.vulnerability_tier === 'High Vulnerability').length;
+      const critShare = (critZones / zones.length) * 100;
+      document.getElementById('kpi-critical-count').innerText = critZones + ' Zones';
+      document.getElementById('kpi-critical-share').innerText = critShare.toFixed(1) + '% of Selected Cohort';
+
+      // [Canopy_Deficit_Pct]
+      const avgCanopy = zones.reduce((acc, z) => acc + z.tree_canopy_pct, 0) / zones.length;
+      const deficit = Math.max(0, 40.0 - avgCanopy);
+      document.getElementById('kpi-canopy-deficit').innerText = deficit.toFixed(1) + '%';
+    }
+
+    // Typology Bar Chart
+    function renderTypologyChart(zones) {
+      const typologyMap = {};
+      zones.forEach(z => {
+        if (!typologyMap[z.zone_type]) typologyMap[z.zone_type] = { sum: 0, count: 0 };
+        typologyMap[z.zone_type].sum += z.surface_temp_c;
+        typologyMap[z.zone_type].count += 1;
+      });
+
+      const labels = Object.keys(typologyMap).sort((a, b) => (typologyMap[b].sum / typologyMap[b].count) - (typologyMap[a].sum / typologyMap[a].count));
+      const values = labels.map(l => (typologyMap[l].sum / typologyMap[l].count).toFixed(1));
+
+      const ctx = document.getElementById('typologyChart').getContext('2d');
+      if (typologyChartInstance) typologyChartInstance.destroy();
+
+      typologyChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Avg Surface Temp (°C)',
+            data: values,
+            backgroundColor: values.map(v => v >= 39 ? '#EF4444' : v >= 35 ? '#F97316' : v >= 31 ? '#3B82F6' : '#10B981'),
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { min: 20, max: 45, title: { display: true, text: 'Temperature (°C)' } },
+            x: { ticks: { font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    // Vulnerability Tier Donut Chart
+    function renderTierDonutChart(zones) {
+      const tierCounts = {
+        'Severe / Critical': 0,
+        'High Vulnerability': 0,
+        'Moderate Vulnerability': 0,
+        'Low Vulnerability': 0
+      };
+      zones.forEach(z => { if (tierCounts[z.vulnerability_tier] !== undefined) tierCounts[z.vulnerability_tier]++; });
+
+      const ctx = document.getElementById('tierDonutChart').getContext('2d');
+      if (tierDonutChartInstance) tierDonutChartInstance.destroy();
+
+      tierDonutChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: Object.keys(tierCounts),
+          datasets: [{
+            data: Object.values(tierCounts),
+            backgroundColor: ['#DC2626', '#EA580C', '#CA8A04', '#16A34A'],
+            borderWidth: 2,
+            borderColor: '#FFFFFF'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+          },
+          cutout: '65%'
+        }
+      });
+    }
+
+    // Intervention Action Table
+    function renderInterventionTable(zones) {
+      const tbody = document.getElementById('interventionTableBody');
+      const sorted = [...zones].sort((a, b) => b.heat_vulnerability_score - a.heat_vulnerability_score).slice(0, 6);
+
+      tbody.innerHTML = sorted.map(z => {
+        let badgeColor = z.vulnerability_tier === 'Severe / Critical' ? '#FEE2E2; color:#DC2626' : z.vulnerability_tier === 'High Vulnerability' ? '#FFEDD5; color:#EA580C' : '#FEF9C3; color:#CA8A04';
+        return `
+          <tr>
+            <td><strong>${z.zone_id}</strong></td>
+            <td>${z.zone_name}</td>
+            <td>${z.zone_type}</td>
+            <td><strong>${z.surface_temp_c}°C</strong></td>
+            <td>${z.tree_canopy_pct}%</td>
+            <td>${z.heat_vulnerability_score.toFixed(2)}</td>
+            <td><span style="background:${badgeColor}; padding:2px 6px; border-radius:3px; font-weight:600; font-size:10px;">${z.vulnerability_tier}</span></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // OLS Regression Scatter Plot
+    function renderOlsScatterChart(zones) {
+      const dataPoints = zones.map(z => ({ x: z.tree_canopy_pct, y: z.surface_temp_c, name: z.zone_name }));
+      
+      // Trendline Points: y = 38.4 - 0.26 * x
+      const linePoints = [
+        { x: 0, y: 38.4 },
+        { x: 60, y: 38.4 - (0.26 * 60) }
+      ];
+
+      const ctx = document.getElementById('olsScatterChart').getContext('2d');
+      if (olsScatterChartInstance) olsScatterChartInstance.destroy();
+
+      olsScatterChartInstance = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Urban Zones',
+              data: dataPoints,
+              backgroundColor: '#2563EB',
+              pointRadius: 6,
+              pointHoverRadius: 8
+            },
+            {
+              type: 'line',
+              label: 'OLS Trendline (y = 38.4 - 0.26x)',
+              data: linePoints,
+              borderColor: '#DC2626',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { title: { display: true, text: 'Tree Canopy Coverage (%)' }, min: 0, max: 65 },
+            y: { title: { display: true, text: 'Land Surface Temp (°C)' }, min: 25, max: 45 }
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `${ctx.raw.name || ''}: Canopy ${ctx.raw.x}% -> Temp ${ctx.raw.y}°C`
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Environmental Justice Scatter Plot
+    function renderEjScatterChart(zones) {
+      const dataPoints = zones.map(z => ({
+        x: z.median_income_usd,
+        y: z.surface_temp_c,
+        r: Math.max(4, z.heat_hospitalizations_per_10k * 0.4),
+        name: z.zone_name,
+        hosp: z.heat_hospitalizations_per_10k
+      }));
+
+      const ctx = document.getElementById('ejScatterChart').getContext('2d');
+      if (ejScatterChartInstance) ejScatterChartInstance.destroy();
+
+      ejScatterChartInstance = new Chart(ctx, {
+        type: 'bubble',
+        data: {
+          datasets: [{
+            label: 'Zones (Income vs Temp)',
+            data: dataPoints,
+            backgroundColor: 'rgba(239, 68, 68, 0.6)',
+            borderColor: '#DC2626'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { title: { display: true, text: 'Median Household Income ($ USD)' }, min: 20000, max: 140000 },
+            y: { title: { display: true, text: 'Land Surface Temp (°C)' }, min: 25, max: 45 }
+          },
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `${ctx.raw.name}: $${ctx.raw.x.toLocaleString()} | ${ctx.raw.y}°C | ER Rate: ${ctx.raw.hosp}/10k`
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Grid Stress Dual Axis Combo Chart
+    function renderGridComboChart() {
+      const years = GRID_DATA.map(d => d.year);
+      const loads = GRID_DATA.map(d => d.peak_load_mw);
+      const days = GRID_DATA.map(d => d.extreme_heat_days);
+
+      const ctx = document.getElementById('gridComboChart').getContext('2d');
+      if (gridComboChartInstance) gridComboChartInstance.destroy();
+
+      gridComboChartInstance = new Chart(ctx, {
+        data: {
+          labels: years,
+          datasets: [
+            {
+              type: 'bar',
+              label: 'Summer Peak Grid Load (MW)',
+              data: loads,
+              backgroundColor: '#1E3A8A',
+              yAxisID: 'yLoad',
+              borderRadius: 4
+            },
+            {
+              type: 'line',
+              label: 'Extreme Heat Days (≥35°C)',
+              data: days,
+              borderColor: '#DC2626',
+              backgroundColor: '#DC2626',
+              borderWidth: 3,
+              pointRadius: 5,
+              yAxisID: 'yDays'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            yLoad: {
+              type: 'linear',
+              position: 'left',
+              title: { display: true, text: 'Peak Load (MW)' },
+              min: 6000,
+              max: 10000
+            },
+            yDays: {
+              type: 'linear',
+              position: 'right',
+              title: { display: true, text: 'Extreme Heat Days Count' },
+              min: 0,
+              max: 50,
+              grid: { drawOnChartArea: false }
+            }
+          }
+        }
+      });
+    }
+
+    // Admissions Line Chart
+    function renderAdmissionsChart() {
+      const ctx = document.getElementById('admissionsLineChart').getContext('2d');
+      if (admissionsLineChartInstance) admissionsLineChartInstance.destroy();
+
+      admissionsLineChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: GRID_DATA.map(d => d.year),
+          datasets: [{
+            label: 'Total Heat Emergency ER Admissions',
+            data: GRID_DATA.map(d => d.admissions),
+            borderColor: '#F97316',
+            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+            fill: true,
+            tension: 0.3,
+            borderWidth: 2,
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { title: { display: true, text: 'Annual Hospitalizations' }, min: 300, max: 1400 }
+          }
+        }
+      });
+    }
+
+    function populateGridTable() {
+      const tbody = document.getElementById('gridTableBody');
+      tbody.innerHTML = GRID_DATA.map(d => `
+        <tr>
+          <td><strong>${d.year}</strong></td>
+          <td>${d.era}</td>
+          <td><strong>${d.peak_load_mw.toLocaleString()} MW</strong></td>
+          <td><span style="color:#DC2626; font-weight:700;">${d.extreme_heat_days} days</span></td>
+          <td>${d.cdd}</td>
+          <td>${d.alerts} events</td>
+        </tr>
+      `).join('');
+    }
+
+    // 3. Slicer Filtering Engine
+    function applyFilters() {
+      const typeVal = document.getElementById('slicer-zone-type').value;
+      const tierVal = document.getElementById('slicer-tier').value;
+
+      currentFilteredZones = ZONES_DATA.filter(z => {
+        const matchesType = (typeVal === 'ALL' || z.zone_type === typeVal);
+        const matchesTier = (tierVal === 'ALL' || z.vulnerability_tier === tierVal);
+        return matchesType && matchesTier;
+      });
+
+      updateMapMarkers(currentFilteredZones);
+      updateKpis(currentFilteredZones);
+      renderTypologyChart(currentFilteredZones);
+      renderTierDonutChart(currentFilteredZones);
+      renderInterventionTable(currentFilteredZones);
+      renderOlsScatterChart(currentFilteredZones);
+      renderEjScatterChart(currentFilteredZones);
+    }
+
+    function resetFilters() {
+      document.getElementById('slicer-zone-type').value = 'ALL';
+      document.getElementById('slicer-tier').value = 'ALL';
+      currentFilteredZones = [...ZONES_DATA];
+      applyFilters();
+    }
+
+    // What-If Simulation
+    function updateSimulation(val) {
+      const cooling = (parseFloat(val) * 0.26).toFixed(2);
+      document.getElementById('sliderResult').innerText = `Selected: +${val}% Canopy | Projected Cooling: -${cooling} °C`;
+      document.getElementById('kpi-cooling-benefit').innerText = `-${cooling} °C`;
+    }
+
+    // 4. Tab Page Navigation
+    function switchPage(pageKey) {
+      document.getElementById('page-overview-content').style.display = 'none';
+      document.getElementById('page-ej-content').style.display = 'none';
+      document.getElementById('page-grid-content').style.display = 'none';
+      document.getElementById('page-model-content').style.display = 'none';
+
+      document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.rail-btn').forEach(b => b.classList.remove('active'));
+
+      if (pageKey === 'overview') {
+        document.getElementById('page-overview-content').style.display = 'block';
+        document.getElementById('tab-overview').classList.add('active');
+        document.getElementById('rail-report').classList.add('active');
+        document.getElementById('page-title').innerText = 'Executive Climate Overview & Geospatial Microclimates';
+        document.getElementById('page-subtitle').innerText = 'Multi-scale Satellite Earth Observation (Landsat 8/9 TIRS & Sentinel-2) | Urban Heat Island Analytics';
+        setTimeout(() => { if (mapInstance) mapInstance.invalidateSize(); }, 200);
+      } else if (pageKey === 'ej') {
+        document.getElementById('page-ej-content').style.display = 'block';
+        document.getElementById('tab-ej').classList.add('active');
+        document.getElementById('rail-report').classList.add('active');
+        document.getElementById('page-title').innerText = 'Biophysical Tree Canopy OLS Cooling & Environmental Justice';
+        document.getElementById('page-subtitle').innerText = 'OLS Empirical Regression (R² = 0.71) & Disproportionate Low-Income Climate Exposure Analysis';
+      } else if (pageKey === 'grid') {
+        document.getElementById('page-grid-content').style.display = 'block';
+        document.getElementById('tab-grid').classList.add('active');
+        document.getElementById('rail-report').classList.add('active');
+        document.getElementById('page-title').innerText = 'Municipal Power Grid Longitudinal Strain (2015–2024)';
+        document.getElementById('page-subtitle').innerText = 'Longitudinal Analysis: Extreme Heatwave Days vs Summer Peak Air Conditioning Grid Demand';
+      } else if (pageKey === 'model') {
+        document.getElementById('page-model-content').style.display = 'block';
+        document.getElementById('tab-model').classList.add('active');
+        document.getElementById('rail-model').classList.add('active');
+        document.getElementById('page-title').innerText = 'Power BI Tabular Model Architecture (Star Schema)';
+        document.getElementById('page-subtitle').innerText = 'Relational Dimensional Model: 1 Fact, 3 Dimensions, 1 Measures Table, TMSL Schema Level 1550';
+      }
+    }
+
+    function downloadPbit() {
+      window.location.href = 'UrbanHeatIQ_Climate_Resilience.pbit';
+    }
+  </script>
+</body>
+</html>

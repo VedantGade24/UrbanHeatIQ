@@ -1,0 +1,51 @@
+zone_id,zone_name,zone_type,geographic_sector,latitude,longitude
+Z01,Center City Commercial Core,Commercial Core,Central / Downtown Core,39.9526,-75.1652
+Z02,Financial & Tech District,Commercial Core,Central / Downtown Core,39.954,-75.168
+Z03,University Medical Complex,Institutional,West Urban / Cobbs Basin,39.951,-75.193
+Z04,Convention & Transit Hub,Commercial Core,Central / Downtown Core,39.9555,-75.159
+Z05,South Port Logistics Terminal,Industrial,South / Port Industrial,39.905,-75.148
+Z06,Rail Freight & Manufacturing,Industrial,Central / Downtown Core,39.982,-75.125
+Z07,Chemical Refining Zone,Industrial,South / Port Industrial,39.921,-75.205
+Z08,Northeast Distribution Center,Industrial,Northeast / Upper City,40.025,-75.045
+Z09,Eastside Dense Rowhouses,High-Density Residential,Central / Downtown Core,39.975,-75.138
+Z10,North Central Urban Block,High-Density Residential,Central / Downtown Core,39.988,-75.152
+Z11,Southwark Working-Class Row,High-Density Residential,Central / Downtown Core,39.932,-75.154
+Z12,West River Residential Dense,High-Density Residential,West Urban / Cobbs Basin,39.965,-75.225
+Z13,Kensington Industrial Border,High-Density Residential,Central / Downtown Core,39.992,-75.121
+Z14,Hunting Park Flats,High-Density Residential,Northwest / Wissahickon,40.015,-75.142
+Z15,Cobbs Creek Mixed Residential,Suburban Residential,West Urban / Cobbs Basin,39.952,-75.252
+Z16,Cedar Park Tree-Lined Avenues,Suburban Residential,West Urban / Cobbs Basin,39.948,-75.221
+Z17,Roxborough Ridge,Suburban Residential,Northwest / Wissahickon,40.038,-75.228
+Z18,Somerton North Suburb,Suburban Residential,Northeast / Upper City,40.118,-75.012
+Z19,Fox Chase Garden Quarter,Suburban Residential,Northeast / Upper City,40.078,-75.082
+Z20,Torresdale Delaware Overlook,Suburban Residential,Northeast / Upper City,40.052,-74.995
+Z21,Chestnut Hill Historic Forest,Affluent Greenbelt,Northwest / Wissahickon,40.078,-75.208
+Z22,Mount Airy Green Canopy Zone,Affluent Greenbelt,Northwest / Wissahickon,40.055,-75.188
+Z23,Overbrook Farms Arboretum,Affluent Greenbelt,West Urban / Cobbs Basin,39.988,-75.262
+Z24,Pennypack Green Buffer,Affluent Greenbelt,Northeast / Upper City,40.065,-75.045
+Z25,Wissahickon Valley Park Core,Park / Reserve,Northwest / Wissahickon,40.035,-75.205
+Z26,Fairmount Central Park Oasis,Park / Reserve,West Urban / Cobbs Basin,39.982,-75.195
+Z27,Pennypack Creek Protected Forest,Park / Reserve,Northeast / Upper City,40.082,-75.035
+Z28,John Heinz National Wildlife Refuge,Park / Reserve,South / Port Industrial,39.888,-75.258
+Z29,Schuylkill River Riparian Edge,Waterfront,West Urban / Cobbs Basin,39.962,-75.182
+Z30,Delaware Marina Waterfront Park,Waterfront,Central / Downtown Core,39.941,-75.141
+Z31,Dense Commercial Sector A,Commercial Core,Central / Downtown Core,39.93996,-75.12394
+Z32,Industrial Terminal Sector B,Industrial,Central / Downtown Core,39.96759,-75.1034
+Z33,Urban Rowhouse East Sector C,High-Density Residential,Central / Downtown Core,39.96337,-75.15069
+Z34,Suburban Parkside Sector D,Suburban Residential,Northwest / Wissahickon,40.07591,-75.11275
+Z35,Green Enclave Sector E,Affluent Greenbelt,Northwest / Wissahickon,40.0407,-75.177
+Z36,Dense Commercial Sector F,Commercial Core,West Urban / Cobbs Basin,39.98375,-75.19292
+Z37,Industrial Terminal Sector A,Industrial,South / Port Industrial,39.90127,-75.10582
+Z38,Urban Rowhouse East Sector B,High-Density Residential,Central / Downtown Core,39.94592,-75.15132
+Z39,Suburban Parkside Sector C,Suburban Residential,Northwest / Wissahickon,40.07098,-75.15222
+Z40,Green Enclave Sector D,Affluent Greenbelt,Northwest / Wissahickon,40.02863,-75.22749
+Z41,Dense Commercial Sector E,Commercial Core,West Urban / Cobbs Basin,39.93318,-75.1871
+Z42,Industrial Terminal Sector F,Industrial,Central / Downtown Core,39.96169,-75.14456
+Z43,Urban Rowhouse East Sector A,High-Density Residential,Central / Downtown Core,39.94959,-75.15299
+Z44,Suburban Parkside Sector B,Suburban Residential,Northwest / Wissahickon,40.02407,-75.16721
+Z45,Green Enclave Sector C,Affluent Greenbelt,Northwest / Wissahickon,40.09885,-75.21064
+Z46,Dense Commercial Sector D,Commercial Core,Central / Downtown Core,39.97682,-75.17434
+Z47,Industrial Terminal Sector E,Industrial,Central / Downtown Core,39.94528,-75.13906
+Z48,Urban Rowhouse East Sector F,High-Density Residential,Central / Downtown Core,39.98442,-75.13763
+Z49,Suburban Parkside Sector A,Suburban Residential,Northwest / Wissahickon,40.07097,-75.12761
+Z50,Green Enclave Sector B,Affluent Greenbelt,Northwest / Wissahickon,40.03286,-75.1861
